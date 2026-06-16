@@ -80,6 +80,16 @@ nav {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+.nav-logo .logo-creator {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.5);
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  margin-top: 1px;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
