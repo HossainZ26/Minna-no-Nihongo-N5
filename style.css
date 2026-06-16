@@ -81,8 +81,8 @@ nav {
 }
 
 .nav-logo .logo-creator {
-  font-size: 0.62rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.58rem;
+  color: var(--gold);
   display: block;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
