@@ -1,10 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vocabulary — Japanese Learning Station</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .vocab-card .back { display:none; }
+    .vocab-card.flipped .front { display:none; }
+    .vocab-card.flipped .back  { display:block; }
+    .vocab-card.flipped { background: var(--navy); color: var(--white); }
+    .vocab-card.flipped .romaji { color: rgba(255,255,255,0.55); }
+    .vocab-card.flipped .jp-word { color: var(--gold); }
+    .bangla { font-size:0.88rem; color:#2980b9; font-weight:600; margin-top:0.3rem; }
+    .vocab-card.flipped .bangla { color:#7fc8f8; }
+    .count-badge {
+      background:var(--navy); color:var(--gold);
+      font-size:0.8rem; font-weight:700;
+      padding:0.3rem 0.9rem; border-radius:20px;
+      display:inline-block; margin-bottom:1rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +37,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">🏠 Home</a></li>
-      <li><a href="letters.html"><span style="background:#e74c3c;color:white;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:0.65em;padding:1px 4px;border-radius:3px;letter-spacing:-1px;vertical-align:middle;">あいう</span> Hiragana</a></li>
+      <li><a href="letters.html"><span style="background:rgba(255,255,255,0.15);color:white;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:0.65em;padding:1px 4px;border-radius:3px;letter-spacing:-1px;vertical-align:middle;">あいう</span> Hiragana</a></li>
       <li><a href="vocabulary.html" class="active">📚 Vocabulary</a></li>
       <li><a href="grammar.html">📖 Grammar</a></li>
       <li><a href="listening.html">🎧 Listening</a></li>
@@ -36,164 +52,47 @@
 <!-- ===== PAGE HEADER ===== -->
 <div class="page-header">
   <h1>📚 N5 Vocabulary</h1>
-  <p class="jp-title">N5 単語リスト</p>
-  <p class="subtitle">150+ essential words for JLPT N5. Click any card to reveal the meaning!</p>
+  <p class="jp-title">N5 単語リスト · এন৫ শব্দভাণ্ডার</p>
+  <p class="subtitle">500+ N5 words with English &amp; Bangla (বাংলা). Click any card to flip!</p>
 </div>
 
 <!-- ===== MAIN ===== -->
 <main>
 
   <div class="alert alert-info">
-    💡 <strong>Tip:</strong> Click a card to flip it and reveal the English meaning. Use the search box or filter by category.
+    💡 <strong>How to use:</strong> Click a card to flip and see the meaning in English &amp; বাংলা. Search or filter by category.
   </div>
 
   <!-- Controls -->
   <div class="vocab-controls">
-    <input type="text" id="vocab-search" placeholder="🔍 Search in Japanese, romaji, or English…" />
+    <input type="text" id="vocab-search" placeholder="🔍 Search Japanese, romaji, English or বাংলা…" />
     <select id="vocab-filter">
       <option value="">All Categories</option>
-      <option value="greetings">Greetings</option>
-      <option value="numbers">Numbers</option>
-      <option value="time">Time</option>
-      <option value="family">Family</option>
-      <option value="body">Body</option>
-      <option value="food">Food</option>
-      <option value="colors">Colors</option>
-      <option value="places">Places</option>
-      <option value="verbs">Verbs</option>
-      <option value="adjectives">Adjectives</option>
-      <option value="daily">Daily Life</option>
+      <option value="greetings">👋 Greetings</option>
+      <option value="numbers">🔢 Numbers</option>
+      <option value="time">🕐 Time</option>
+      <option value="days">📅 Days</option>
+      <option value="months">🗓️ Months</option>
+      <option value="family">👨‍👩‍👧 Family</option>
+      <option value="body">🧍 Body</option>
+      <option value="food">🍜 Food &amp; Drink</option>
+      <option value="colors">🎨 Colors</option>
+      <option value="places">🏠 Places</option>
+      <option value="verbs">🏃 Verbs</option>
+      <option value="adjectives">✨ Adjectives</option>
+      <option value="daily">📱 Daily Life</option>
+      <option value="clothing">👘 Clothing</option>
+      <option value="nature">🌿 Nature</option>
+      <option value="school">🏫 School</option>
+      <option value="animals">🐾 Animals</option>
+      <option value="directions">🧭 Directions</option>
+      <option value="questions">❓ Question Words</option>
+      <option value="adverbs">💬 Adverbs</option>
     </select>
   </div>
 
-  <!-- ── Greetings ── -->
-  <h2 class="section-title">👋 Greetings &amp; Basics</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">おはよう</div><div class="romaji">ohayou</div><div class="meaning">Good morning</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">こんにちは</div><div class="romaji">konnichiwa</div><div class="meaning">Hello / Good afternoon</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">こんばんは</div><div class="romaji">konbanwa</div><div class="meaning">Good evening</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">おやすみ</div><div class="romaji">oyasumi</div><div class="meaning">Good night</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">ありがとう</div><div class="romaji">arigatou</div><div class="meaning">Thank you</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">すみません</div><div class="romaji">sumimasen</div><div class="meaning">Excuse me / Sorry</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">はい</div><div class="romaji">hai</div><div class="meaning">Yes</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">いいえ</div><div class="romaji">iie</div><div class="meaning">No</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">さようなら</div><div class="romaji">sayounara</div><div class="meaning">Goodbye</div><span class="category-tag">greetings</span></div>
-    <div class="vocab-card" data-category="greetings"><div class="jp-word">またね</div><div class="romaji">mata ne</div><div class="meaning">See you later</div><span class="category-tag">greetings</span></div>
-  </div>
-
-  <!-- ── Numbers ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🔢 Numbers</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">いち</div><div class="romaji">ichi</div><div class="meaning">1 (one)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">に</div><div class="romaji">ni</div><div class="meaning">2 (two)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">さん</div><div class="romaji">san</div><div class="meaning">3 (three)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">し / よん</div><div class="romaji">shi / yon</div><div class="meaning">4 (four)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">ご</div><div class="romaji">go</div><div class="meaning">5 (five)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">ろく</div><div class="romaji">roku</div><div class="meaning">6 (six)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">しち / なな</div><div class="romaji">shichi / nana</div><div class="meaning">7 (seven)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">はち</div><div class="romaji">hachi</div><div class="meaning">8 (eight)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">きゅう / く</div><div class="romaji">kyuu / ku</div><div class="meaning">9 (nine)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">じゅう</div><div class="romaji">juu</div><div class="meaning">10 (ten)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">ひゃく</div><div class="romaji">hyaku</div><div class="meaning">100 (hundred)</div><span class="category-tag">numbers</span></div>
-    <div class="vocab-card" data-category="numbers"><div class="jp-word">せん</div><div class="romaji">sen</div><div class="meaning">1000 (thousand)</div><span class="category-tag">numbers</span></div>
-  </div>
-
-  <!-- ── Time ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🕐 Time</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="time"><div class="jp-word">いま</div><div class="romaji">ima</div><div class="meaning">now</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">きょう</div><div class="romaji">kyou</div><div class="meaning">today</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">あした</div><div class="romaji">ashita</div><div class="meaning">tomorrow</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">きのう</div><div class="romaji">kinou</div><div class="meaning">yesterday</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">あさ</div><div class="romaji">asa</div><div class="meaning">morning</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">ひる</div><div class="romaji">hiru</div><div class="meaning">noon / daytime</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">よる</div><div class="romaji">yoru</div><div class="meaning">evening / night</div><span class="category-tag">time</span></div>
-    <div class="vocab-card" data-category="time"><div class="jp-word">まいにち</div><div class="romaji">mainichi</div><div class="meaning">every day</div><span class="category-tag">time</span></div>
-  </div>
-
-  <!-- ── Family ── -->
-  <h2 class="section-title" style="margin-top:2rem;">👨‍👩‍👧 Family</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="family"><div class="jp-word">ちち</div><div class="romaji">chichi</div><div class="meaning">father (my)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">はは</div><div class="romaji">haha</div><div class="meaning">mother (my)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">おとうさん</div><div class="romaji">otousan</div><div class="meaning">father (someone's)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">おかあさん</div><div class="romaji">okaasan</div><div class="meaning">mother (someone's)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">あに</div><div class="romaji">ani</div><div class="meaning">older brother (my)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">あね</div><div class="romaji">ane</div><div class="meaning">older sister (my)</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">おとうと</div><div class="romaji">otouto</div><div class="meaning">younger brother</div><span class="category-tag">family</span></div>
-    <div class="vocab-card" data-category="family"><div class="jp-word">いもうと</div><div class="romaji">imouto</div><div class="meaning">younger sister</div><span class="category-tag">family</span></div>
-  </div>
-
-  <!-- ── Food ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🍜 Food &amp; Drink</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="food"><div class="jp-word">ごはん</div><div class="romaji">gohan</div><div class="meaning">rice / meal</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">みず</div><div class="romaji">mizu</div><div class="meaning">water</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">おちゃ</div><div class="romaji">ocha</div><div class="meaning">tea</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">パン</div><div class="romaji">pan</div><div class="meaning">bread</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">たまご</div><div class="romaji">tamago</div><div class="meaning">egg</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">にく</div><div class="romaji">niku</div><div class="meaning">meat</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">さかな</div><div class="romaji">sakana</div><div class="meaning">fish</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">やさい</div><div class="romaji">yasai</div><div class="meaning">vegetables</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">くだもの</div><div class="romaji">kudamono</div><div class="meaning">fruit</div><span class="category-tag">food</span></div>
-    <div class="vocab-card" data-category="food"><div class="jp-word">すし</div><div class="romaji">sushi</div><div class="meaning">sushi</div><span class="category-tag">food</span></div>
-  </div>
-
-  <!-- ── Colors ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🎨 Colors</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#e74c3c;"><div class="jp-word">あか</div><div class="romaji">aka</div><div class="meaning">red</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#3498db;"><div class="jp-word">あお</div><div class="romaji">ao</div><div class="meaning">blue</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#27ae60;"><div class="jp-word">みどり</div><div class="romaji">midori</div><div class="meaning">green</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#f1c40f;"><div class="jp-word">きいろ</div><div class="romaji">kiiro</div><div class="meaning">yellow</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#ffffff;border:1px solid #ddd;"><div class="jp-word">しろ</div><div class="romaji">shiro</div><div class="meaning">white</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#2c3e50;"><div class="jp-word">くろ</div><div class="romaji">kuro</div><div class="meaning">black</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#e67e22;"><div class="jp-word">オレンジ</div><div class="romaji">orenji</div><div class="meaning">orange</div><span class="category-tag">colors</span></div>
-    <div class="vocab-card" data-category="colors" style="border-bottom-color:#8e44ad;"><div class="jp-word">むらさき</div><div class="romaji">murasaki</div><div class="meaning">purple</div><span class="category-tag">colors</span></div>
-  </div>
-
-  <!-- ── Places ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🏠 Places</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="places"><div class="jp-word">いえ / うち</div><div class="romaji">ie / uchi</div><div class="meaning">house / home</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">がっこう</div><div class="romaji">gakkou</div><div class="meaning">school</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">えき</div><div class="romaji">eki</div><div class="meaning">train station</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">びょういん</div><div class="romaji">byouin</div><div class="meaning">hospital</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">みせ</div><div class="romaji">mise</div><div class="meaning">shop / store</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">としょかん</div><div class="romaji">toshokan</div><div class="meaning">library</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">こうえん</div><div class="romaji">kouen</div><div class="meaning">park</div><span class="category-tag">places</span></div>
-    <div class="vocab-card" data-category="places"><div class="jp-word">レストラン</div><div class="romaji">resutoran</div><div class="meaning">restaurant</div><span class="category-tag">places</span></div>
-  </div>
-
-  <!-- ── Verbs ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🏃 Common Verbs</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">たべます</div><div class="romaji">tabemasu</div><div class="meaning">to eat</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">のみます</div><div class="romaji">nomimasu</div><div class="meaning">to drink</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">いきます</div><div class="romaji">ikimasu</div><div class="meaning">to go</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">きます</div><div class="romaji">kimasu</div><div class="meaning">to come</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">みます</div><div class="romaji">mimasu</div><div class="meaning">to see / watch</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">ききます</div><div class="romaji">kikimasu</div><div class="meaning">to listen / ask</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">かきます</div><div class="romaji">kakimasu</div><div class="meaning">to write</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">よみます</div><div class="romaji">yomimasu</div><div class="meaning">to read</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">はなします</div><div class="romaji">hanashimasu</div><div class="meaning">to speak</div><span class="category-tag">verbs</span></div>
-    <div class="vocab-card" data-category="verbs"><div class="jp-word">わかります</div><div class="romaji">wakarimasu</div><div class="meaning">to understand</div><span class="category-tag">verbs</span></div>
-  </div>
-
-  <!-- ── Adjectives ── -->
-  <h2 class="section-title" style="margin-top:2rem;">✨ Adjectives</h2>
-  <div class="vocab-grid">
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">おおきい</div><div class="romaji">ookii</div><div class="meaning">big / large</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">ちいさい</div><div class="romaji">chiisai</div><div class="meaning">small</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">あたらしい</div><div class="romaji">atarashii</div><div class="meaning">new</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">ふるい</div><div class="romaji">furui</div><div class="meaning">old</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">たかい</div><div class="romaji">takai</div><div class="meaning">expensive / tall</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">やすい</div><div class="romaji">yasui</div><div class="meaning">cheap</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">おいしい</div><div class="romaji">oishii</div><div class="meaning">delicious</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">たのしい</div><div class="romaji">tanoshii</div><div class="meaning">fun / enjoyable</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">むずかしい</div><div class="romaji">muzukashii</div><div class="meaning">difficult</div><span class="category-tag">adjectives</span></div>
-    <div class="vocab-card" data-category="adjectives"><div class="jp-word">やさしい</div><div class="romaji">yasashii</div><div class="meaning">easy / kind</div><span class="category-tag">adjectives</span></div>
-  </div>
+  <div id="word-count" class="count-badge">Loading…</div>
+  <div class="vocab-grid" id="vocab-grid"></div>
 
 </main>
 
@@ -207,6 +106,59 @@
   </div>
 </footer>
 
+<script src="vocab-data.js"></script>
 <script src="script.js"></script>
+<script>
+const CAT = {
+  greetings:'👋 Greetings', numbers:'🔢 Numbers', time:'🕐 Time',
+  days:'📅 Days', months:'🗓️ Months', family:'👨‍👩‍👧 Family',
+  body:'🧍 Body', food:'🍜 Food', colors:'🎨 Colors',
+  places:'🏠 Places', verbs:'🏃 Verbs', adjectives:'✨ Adjectives',
+  daily:'📱 Daily', clothing:'👘 Clothing', nature:'🌿 Nature',
+  school:'🏫 School', animals:'🐾 Animals', directions:'🧭 Directions',
+  questions:'❓ Questions', adverbs:'💬 Adverbs'
+};
+
+function buildCard(w) {
+  const div = document.createElement('div');
+  div.className = 'vocab-card';
+  div.dataset.category = w.c;
+  div.innerHTML = `
+    <div class="front">
+      <div class="jp-word">${w.k}</div>
+      <div class="romaji">${w.r}</div>
+      <span class="category-tag">${CAT[w.c] || w.c}</span>
+    </div>
+    <div class="back">
+      <div class="jp-word">${w.k}</div>
+      <div class="romaji">${w.r}</div>
+      <div class="meaning">${w.e}</div>
+      <div class="bangla">🇧🇩 ${w.b}</div>
+    </div>`;
+  div.addEventListener('click', () => div.classList.toggle('flipped'));
+  return div;
+}
+
+function render(list) {
+  const grid = document.getElementById('vocab-grid');
+  const badge = document.getElementById('word-count');
+  grid.innerHTML = '';
+  list.forEach(w => grid.appendChild(buildCard(w)));
+  badge.textContent = list.length + ' words';
+}
+
+function filter() {
+  const q   = document.getElementById('vocab-search').value.toLowerCase();
+  const cat = document.getElementById('vocab-filter').value;
+  render(VOCAB.filter(w =>
+    (!q   || (w.k+w.r+w.e+w.b).toLowerCase().includes(q)) &&
+    (!cat || w.c === cat)
+  ));
+}
+
+document.getElementById('vocab-search').addEventListener('input',  filter);
+document.getElementById('vocab-filter').addEventListener('change', filter);
+render(VOCAB);
+</script>
 </body>
 </html>
