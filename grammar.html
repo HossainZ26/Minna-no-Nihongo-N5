@@ -3,8 +3,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grammar — Japanese Learning Station</title>
+  <title>Grammar (N5 Lessons) — Japanese Learning Station</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .lesson-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-btn {
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--gray-light);
+      background: var(--white);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all var(--transition);
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    .lesson-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .lesson-btn.active {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+    }
+
+    .lesson-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .lesson-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lesson-title .number {
+      background: var(--red);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .pattern-card {
+      background: #f8f9fa;
+      border-left: 4px solid var(--red);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .pattern-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+    }
+
+    .pattern-header:hover {
+      opacity: 0.8;
+    }
+
+    .pattern-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+
+    .pattern-meaning {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+      font-weight: 400;
+    }
+
+    .toggle-icon {
+      color: var(--red);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform var(--transition);
+    }
+
+    .pattern-card.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    .pattern-body {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .pattern-card.collapsed .pattern-body {
+      display: none;
+    }
+
+    .formula {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .explanation {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .examples-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .examples-list li {
+      display: flex;
+      flex-direction: column;
+      padding: 0.8rem;
+      background: var(--white);
+      margin-bottom: 0.8rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .ex-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .ex-en {
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .ex-bn {
+      color: var(--red);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .lesson-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-light);
+      font-size: 0.9rem;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stat strong {
+      color: var(--red);
+    }
+
+    @media (max-width: 768px) {
+      .lesson-selector {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.6rem;
+      }
+
+      .lesson-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+      }
+
+      .lesson-content {
+        padding: 1rem;
+      }
+
+      .pattern-card {
+        padding: 1rem;
+      }
+
+      .ex-jp {
+        font-size: 0.9rem;
+      }
+
+      .lesson-stats {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,287 +257,97 @@
 </nav>
 
 <!-- ===== PAGE HEADER ===== -->
-<div class="page-header">
+<header class="page-header">
   <h1>📖 N5 Grammar</h1>
-  <p class="jp-title">N5 文法ポイント</p>
-  <p class="subtitle">Core sentence patterns every beginner must know. Click a pattern to expand!</p>
-</div>
+  <p class="subtitle">10 Lessons • 40+ Grammar Patterns</p>
+  <p class="jp">N5 文法ポイント</p>
+</header>
 
 <!-- ===== MAIN ===== -->
 <main>
+  <!-- Lesson Selector -->
+  <div class="lesson-selector" id="lessonSelector"></div>
 
-  <div class="alert alert-info">
-    💡 <strong>How to use:</strong> Click on any grammar pattern to see the structure, explanation, and example sentences.
-  </div>
-
-  <!-- ── Particles ── -->
-  <h2 class="section-title">🔷 Particles (助詞)</h2>
-
-  <!-- は (wa) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜は〜です</span> &nbsp;<span class="meaning">Topic marker — "As for X, it is Y"</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Topic] は [Description] です。</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;">The particle <strong>は (wa)</strong> marks the topic of the sentence. It tells us what the sentence is about. Note: it is written as <em>ha</em> but pronounced <em>wa</em>.</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">わたしは がくせい です。</span><span class="ex-en">I am a student.</span></li>
-        <li><span class="ex-jp">これは ほん です。</span><span class="ex-en">This is a book.</span></li>
-        <li><span class="ex-jp">やまださんは にほんじん です。</span><span class="ex-en">Mr. Yamada is Japanese.</span></li>
-        <li><span class="ex-jp">きょうは もくようび です。</span><span class="ex-en">Today is Thursday.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- が (ga) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜が〜</span> &nbsp;<span class="meaning">Subject marker — emphasizes WHO does the action</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Subject] が [Verb / Adjective]。</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;">The particle <strong>が (ga)</strong> marks the grammatical subject. Use it when identifying something new, asking questions, or with certain verbs like すき (like), わかる (understand).</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">だれが きましたか。</span><span class="ex-en">Who came?</span></li>
-        <li><span class="ex-jp">ねこが います。</span><span class="ex-en">There is a cat.</span></li>
-        <li><span class="ex-jp">にほんごが すきです。</span><span class="ex-en">I like Japanese.</span></li>
-        <li><span class="ex-jp">わたしが やります。</span><span class="ex-en">I will do it.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- を (wo) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜を〜</span> &nbsp;<span class="meaning">Object marker — marks the direct object</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Subject] は [Object] を [Verb]。</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;">The particle <strong>を (wo)</strong> marks the direct object of the verb — the thing that the action is performed on.</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">ごはんを たべます。</span><span class="ex-en">I eat rice.</span></li>
-        <li><span class="ex-jp">みずを のみます。</span><span class="ex-en">I drink water.</span></li>
-        <li><span class="ex-jp">てがみを かきます。</span><span class="ex-en">I write a letter.</span></li>
-        <li><span class="ex-jp">えいごを べんきょうします。</span><span class="ex-en">I study English.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- に (ni) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜に〜</span> &nbsp;<span class="meaning">Direction / Time / Location (existence)</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Place/Time] に [Verb]。</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;"><strong>に (ni)</strong> is used for: (1) direction/destination with movement verbs, (2) specific time expressions, (3) location of existence with います/あります.</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">がっこうに いきます。</span><span class="ex-en">I go to school.</span></li>
-        <li><span class="ex-jp">さんじに おきます。</span><span class="ex-en">I wake up at 3 o'clock.</span></li>
-        <li><span class="ex-jp">つくえの うえに ほんが あります。</span><span class="ex-en">There is a book on the desk.</span></li>
-        <li><span class="ex-jp">にほんに いたい です。</span><span class="ex-en">I want to go to Japan.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- で (de) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜で〜</span> &nbsp;<span class="meaning">Place of action / Means / Reason</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Place/Means] で [Action Verb]。</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;"><strong>で (de)</strong> marks: (1) the place where an action happens, (2) the means/method used, (3) material something is made of.</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">がっこうで べんきょうします。</span><span class="ex-en">I study at school.</span></li>
-        <li><span class="ex-jp">バスで いきます。</span><span class="ex-en">I go by bus.</span></li>
-        <li><span class="ex-jp">はしで たべます。</span><span class="ex-en">I eat with chopsticks.</span></li>
-        <li><span class="ex-jp">にほんごで はなして ください。</span><span class="ex-en">Please speak in Japanese.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- の (no) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜の〜</span> &nbsp;<span class="meaning">Possessive / Noun modifier — "of" or "'s"</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Noun A] の [Noun B] → B of A</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;"><strong>の (no)</strong> connects two nouns. The first noun modifies the second — like apostrophe-s in English.</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">わたしの ほん</span><span class="ex-en">my book</span></li>
-        <li><span class="ex-jp">にほんの くるま</span><span class="ex-en">Japanese car (car of Japan)</span></li>
-        <li><span class="ex-jp">やまださんの かばん</span><span class="ex-en">Yamada-san's bag</span></li>
-        <li><span class="ex-jp">だいがくの せんせい</span><span class="ex-en">university teacher</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ── Verb Forms ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🔷 Verb Forms (動詞の形)</h2>
-
-  <!-- ます form -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜ます / 〜ません</span> &nbsp;<span class="meaning">Polite present / future tense</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">Verb-stem + ます (affirmative) / ません (negative)</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">たべます → たべません</span><span class="ex-en">I eat → I don't eat</span></li>
-        <li><span class="ex-jp">いきます → いきません</span><span class="ex-en">I go → I don't go</span></li>
-        <li><span class="ex-jp">みます → みません</span><span class="ex-en">I watch → I don't watch</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ました form -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜ました / 〜ませんでした</span> &nbsp;<span class="meaning">Polite past tense</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">Verb-stem + ました (past) / ませんでした (past negative)</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">きのう ごはんを たべました。</span><span class="ex-en">I ate rice yesterday.</span></li>
-        <li><span class="ex-jp">えいがを みませんでした。</span><span class="ex-en">I didn't watch the movie.</span></li>
-        <li><span class="ex-jp">がっこうに いきました。</span><span class="ex-en">I went to school.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- たい form -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜たいです</span> &nbsp;<span class="meaning">Want to do something</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">Verb-stem + たいです → "want to [verb]"</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">にほんに いきたいです。</span><span class="ex-en">I want to go to Japan.</span></li>
-        <li><span class="ex-jp">すしを たべたいです。</span><span class="ex-en">I want to eat sushi.</span></li>
-        <li><span class="ex-jp">にほんごを はなしたいです。</span><span class="ex-en">I want to speak Japanese.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- て form -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜てください</span> &nbsp;<span class="meaning">Please do something (request)</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">Verb [て-form] + ください → "Please [verb]"</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">みてください。</span><span class="ex-en">Please look.</span></li>
-        <li><span class="ex-jp">ゆっくり はなして ください。</span><span class="ex-en">Please speak slowly.</span></li>
-        <li><span class="ex-jp">まってください。</span><span class="ex-en">Please wait.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ── Sentence Patterns ── -->
-  <h2 class="section-title" style="margin-top:2rem;">🔷 Key Sentence Patterns</h2>
-
-  <!-- Question pattern -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜か？</span> &nbsp;<span class="meaning">Yes/No question ending</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">Statement + か？ → Question</div>
-      <p style="margin-bottom:1rem;font-size:0.9rem;">Add <strong>か</strong> at the end of any statement to turn it into a yes/no question. No need to change word order (unlike English).</p>
-      <ul class="examples-list">
-        <li><span class="ex-jp">がくせい ですか。</span><span class="ex-en">Are you a student?</span></li>
-        <li><span class="ex-jp">にほんごが わかりますか。</span><span class="ex-en">Do you understand Japanese?</span></li>
-        <li><span class="ex-jp">たべましたか。</span><span class="ex-en">Did you eat?</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- も (mo) -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">〜も〜</span> &nbsp;<span class="meaning">Also / too — replaces は or が</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">[Noun] も [Verb/Adj] → "Noun also…"</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">わたしも がくせい です。</span><span class="ex-en">I am also a student.</span></li>
-        <li><span class="ex-jp">これも いいです。</span><span class="ex-en">This is also good.</span></li>
-        <li><span class="ex-jp">あなたも きますか。</span><span class="ex-en">Are you coming too?</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- います / あります -->
-  <div class="grammar-item">
-    <div class="grammar-header">
-      <div><span class="pattern">います / あります</span> &nbsp;<span class="meaning">There is (existence verbs)</span></div>
-      <span class="toggle-icon">▼</span>
-    </div>
-    <div class="grammar-body">
-      <div class="formula">います → living things (people, animals) &nbsp;|&nbsp; あります → non-living things (objects, plants)</div>
-      <ul class="examples-list">
-        <li><span class="ex-jp">ねこが います。</span><span class="ex-en">There is a cat.</span></li>
-        <li><span class="ex-jp">つくえが あります。</span><span class="ex-en">There is a desk.</span></li>
-        <li><span class="ex-jp">へやに がくせいが います。</span><span class="ex-en">There are students in the room.</span></li>
-        <li><span class="ex-jp">えきの まえに コンビニが あります。</span><span class="ex-en">There is a convenience store in front of the station.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Progress summary -->
-  <div class="card" style="margin-top:2rem;">
-    <div class="card-header" style="background:#1a1a2e;">📊 N5 Grammar Progress</div>
-    <div class="card-body">
-      <div style="margin-bottom:0.8rem;">
-        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
-          <span>Particles (は が を に で の も)</span><span>7 / 7</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar" data-width="100"></div></div>
-      </div>
-      <div style="margin-bottom:0.8rem;">
-        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
-          <span>Verb Forms (ます・ました・たい・て)</span><span>4 / 6</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar" data-width="67" style="background:linear-gradient(90deg,#2980b9,#27ae60);"></div></div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
-          <span>Sentence Patterns (か・も・います・あります)</span><span>4 / 4</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar" data-width="100" style="background:linear-gradient(90deg,#27ae60,#f39c12);"></div></div>
-      </div>
-    </div>
-  </div>
+  <!-- Lesson Content -->
+  <div class="lesson-content" id="lessonContent"></div>
 
 </main>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-inner">
-    <p class="footer-quote">Welcome to Japanese Learning Station. Never give up — every step you take brings you closer to your goal.</p>
-    <div class="footer-divider"></div>
-    <p class="footer-quote-jp">日本語学習ステーションへようこそ。あきらめずに、一歩一歩進めば目標に近づきます。</p>
-    <p class="footer-copy">© 2025 Japanese Learning Station · JLPT N5 Beginner Course</p>
-  </div>
-</footer>
-
+<!-- ===== SCRIPTS ===== -->
+<script src="grammar-lessons.js"></script>
 <script src="script.js"></script>
+<script>
+  const lessonSelector = document.getElementById('lessonSelector');
+  const lessonContent = document.getElementById('lessonContent');
+  let currentLesson = 1;
+
+  // Render lesson buttons
+  GRAMMAR_LESSONS.forEach((lesson) => {
+    const btn = document.createElement('button');
+    btn.className = `lesson-btn ${lesson.lesson === 1 ? 'active' : ''}`;
+    btn.textContent = `Lesson ${lesson.lesson}`;
+    btn.onclick = () => selectLesson(lesson.lesson);
+    lessonSelector.appendChild(btn);
+  });
+
+  function selectLesson(lessonNum) {
+    currentLesson = lessonNum;
+    const lesson = GRAMMAR_LESSONS.find(l => l.lesson === lessonNum);
+
+    // Update button states
+    document.querySelectorAll('.lesson-btn').forEach((btn, idx) => {
+      btn.classList.toggle('active', (idx + 1) === lessonNum);
+    });
+
+    // Render lesson content
+    const html = `
+      <div class="lesson-title">
+        <span class="number">${lesson.lesson}</span>
+        <span>${lesson.title}</span>
+      </div>
+
+      ${lesson.patterns.map((pattern, idx) => `
+        <div class="pattern-card">
+          <div class="pattern-header" onclick="this.parentElement.classList.toggle('collapsed')">
+            <div>
+              <div class="pattern-title">${pattern.pattern}</div>
+              <span class="pattern-meaning">${pattern.meaning}</span>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="pattern-body">
+            <div class="formula">${pattern.formula}</div>
+            <div class="explanation">${pattern.explanation}</div>
+            <ul class="examples-list">
+              ${pattern.examples.map(ex => `
+                <li>
+                  <span class="ex-jp">${ex.jp}</span>
+                  <span class="ex-en">${ex.en}</span>
+                  <span class="ex-bn">বাংলা: ${ex.bn}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        </div>
+      `).join('')}
+
+      <div class="lesson-stats">
+        <div class="stat">
+          <span>📝 Patterns in lesson:</span>
+          <strong>${lesson.patterns.length}</strong>
+        </div>
+        <div class="stat">
+          <span>✅ Total patterns:</span>
+          <strong>${GRAMMAR_LESSONS.reduce((sum, l) => sum + l.patterns.length, 0)}</strong>
+        </div>
+      </div>
+    `;
+
+    lessonContent.innerHTML = html;
+  }
+
+  // Load first lesson on page load
+  selectLesson(1);
+</script>
 </body>
 </html>
