@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanji (N5) — Japanese Learning Station</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .flashcard-container {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .flashcard {
+      perspective: 1000px;
+      height: 300px;
+      margin: 2rem 0;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flashcard.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-front,
+    .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+
+    .flashcard-front {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+    }
+
+    .flashcard-back {
+      background: var(--white);
+      color: var(--text-dark);
+      transform: rotateY(180deg);
+    }
+
+    .kanji-display {
+      font-size: 6rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .tap-hint {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 1rem;
+    }
+
+    .reading-section,
+    .meaning-section,
+    .example-section {
+      margin: 1rem 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .label {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .on-yomi,
+    .kun-yomi {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin: 0.3rem 0;
+    }
+
+    .meaning-en {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin: 0.3rem 0;
+    }
+
+    .meaning-bn {
+      font-size: 0.95rem;
+      color: var(--red);
+      font-weight: 500;
+      margin: 0.3rem 0;
+    }
+
+    .example-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin: 0.5rem 0;
+    }
+
+    .example-en,
+    .example-bn {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin: 0.2rem 0;
+    }
+
+    .example-bn {
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .stroke-info {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-top: 1rem;
+    }
+
+    .navigation-btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid var(--blue);
+      background: var(--white);
+      color: var(--blue);
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .progress-info {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 1rem 0;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: var(--gray-light);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--red));
+      transition: width 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .kanji-display {
+        font-size: 4rem;
+      }
+
+      .flashcard {
+        height: 250px;
+      }
+
+      .navigation-btns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">🌸</span>
+      <span class="logo-text">
+        Japanese Learning Station
+        <span class="logo-jp">日本語学習ステーション</span>
+        <span class="logo-creator">created by Hossain &amp; Academy</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="letters.html"><svg width="14" height="14" viewBox="0 0 14 14" style="display:inline-block;vertical-align:middle;"><rect x="1" y="2" width="5" height="10" fill="#5dade2" rx="0.5"/><rect x="6" y="2" width="7" height="10" fill="#e74c3c" rx="0.5"/><text x="9.5" y="7" font-family="Noto Sans JP" font-size="5.5" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">あ</text></svg> Hiragana</a></li>
+      <li><a href="kanji.html" class="active">🈶 Kanji</a></li>
+      <li><a href="vocabulary.html">📚 Vocabulary</a></li>
+      <li><a href="grammar.html">📖 Grammar</a></li>
+      <li><a href="listening.html">🎧 Listening</a></li>
+      <li><a href="assignment.html">📝 Assignment</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<header class="page-header">
+  <h1>🈶 N5 Kanji</h1>
+  <p class="subtitle">150+ Characters • Interactive Flashcards</p>
+  <p class="jp">N5 漢字</p>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="flashcard-container">
+    <!-- Flashcard -->
+    <div class="flashcard" id="flashcard">
+      <div class="flashcard-inner">
+        <!-- Front -->
+        <div class="flashcard-front">
+          <div class="kanji-display" id="kanjiChar">日</div>
+          <p class="tap-hint">Click to flip</p>
+        </div>
+
+        <!-- Back -->
+        <div class="flashcard-back">
+          <div class="reading-section">
+            <p class="label">Reading:</p>
+            <p class="on-yomi" id="onYomi">On: ニチ</p>
+            <p class="kun-yomi" id="kunYomi">Kun: ひ</p>
+          </div>
+
+          <div class="meaning-section">
+            <p class="label">Meanings:</p>
+            <p class="meaning-en" id="meanings">Day, Sun, Daily</p>
+            <p class="meaning-bn" id="bangla">দিন, সূর্য</p>
+          </div>
+
+          <div class="example-section">
+            <p class="label">Example:</p>
+            <p class="example-jp" id="exJp">毎日勉強します。</p>
+            <p class="example-en" id="exEn">I study every day.</p>
+            <p class="example-bn" id="exBn">আমি প্রতিদিন পড়াশোনা করি।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="stroke-info">Strokes: <span id="strokes">4</span></p>
+
+    <!-- Progress -->
+    <div class="progress-info">
+      <div>Kanji <span id="current">1</span> of <span id="total">150</span></div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar" style="width: 0.67%;"></div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation-btns">
+      <button class="nav-btn" id="prevBtn" onclick="previousKanji()">← Previous</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextKanji()">Next →</button>
+    </div>
+  </div>
+</main>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="kanji-data.js"></script>
+<script src="script.js"></script>
+<script>
+  let currentIndex = 0;
+
+  // Initialize
+  function init() {
+    displayKanji(currentIndex);
+  }
+
+  function displayKanji(index) {
+    if (index < 0 || index >= KANJI_DATA.length) return;
+
+    const kanji = KANJI_DATA[index];
+    currentIndex = index;
+
+    // Front
+    document.getElementById('kanjiChar').textContent = kanji.kanji;
+    document.getElementById('strokes').textContent = kanji.strokeCount;
+
+    // Back
+    document.getElementById('onYomi').textContent = `On: ${kanji.onYomi}`;
+    document.getElementById('kunYomi').textContent = kanji.kunYomi ? `Kun: ${kanji.kunYomi}` : '';
+    document.getElementById('meanings').textContent = kanji.meaningsEnglish.join(', ');
+    document.getElementById('bangla').textContent = kanji.meaningBangla;
+
+    // Example (first example)
+    const ex = kanji.exampleSentences[0];
+    document.getElementById('exJp').textContent = ex.japanese;
+    document.getElementById('exEn').textContent = ex.english;
+    document.getElementById('exBn').textContent = ex.bangla;
+
+    // Progress
+    document.getElementById('current').textContent = index + 1;
+    document.getElementById('total').textContent = KANJI_DATA.length;
+    const progressPercent = ((index + 1) / KANJI_DATA.length) * 100;
+    document.getElementById('progressBar').style.width = progressPercent + '%';
+
+    // Buttons
+    document.getElementById('prevBtn').disabled = index === 0;
+    document.getElementById('nextBtn').disabled = index === KANJI_DATA.length - 1;
+
+    // Reset flip
+    document.getElementById('flashcard').classList.remove('flipped');
+  }
+
+  function nextKanji() {
+    displayKanji(currentIndex + 1);
+  }
+
+  function previousKanji() {
+    displayKanji(currentIndex - 1);
+  }
+
+  // Flip on click
+  document.getElementById('flashcard').addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') nextKanji();
+    if (e.key === 'ArrowLeft') previousKanji();
+  });
+
+  init();
+</script>
+
+</body>
+</html>
