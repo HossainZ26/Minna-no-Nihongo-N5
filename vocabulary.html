@@ -3,22 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vocabulary — Japanese Learning Station</title>
+  <title>Vocabulary (N5 Lessons) — Japanese Learning Station</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .vocab-card .back { display:none; }
-    .vocab-card.flipped .front { display:none; }
-    .vocab-card.flipped .back  { display:block; }
-    .vocab-card.flipped { background: var(--navy); color: var(--white); }
-    .vocab-card.flipped .romaji { color: rgba(255,255,255,0.55); }
-    .vocab-card.flipped .jp-word { color: var(--gold); }
-    .bangla { font-size:0.88rem; color:#2980b9; font-weight:600; margin-top:0.3rem; }
-    .vocab-card.flipped .bangla { color:#7fc8f8; }
-    .count-badge {
-      background:var(--navy); color:var(--gold);
-      font-size:0.8rem; font-weight:700;
-      padding:0.3rem 0.9rem; border-radius:20px;
-      display:inline-block; margin-bottom:1rem;
+    .lesson-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-btn {
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--gray-light);
+      background: var(--white);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+      color: var(--text-dark);
+    }
+
+    .lesson-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .lesson-btn.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .lesson-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .lesson-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lesson-title .number {
+      background: var(--blue);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .vocab-table th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 700;
+      border: 1px solid var(--gray-light);
+    }
+
+    .vocab-table td {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--gray-light);
+      vertical-align: middle;
+    }
+
+    .vocab-table tbody tr:nth-child(even) {
+      background: var(--gray-light);
+    }
+
+    .vocab-table tbody tr:hover {
+      background: #e8eef5;
+    }
+
+    .vocab-num {
+      font-weight: 700;
+      color: var(--blue);
+      text-align: center;
+      width: 40px;
+    }
+
+    .vocab-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .vocab-jp .kanji {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 400;
+      margin-top: 0.2rem;
+    }
+
+    .vocab-en {
+      color: var(--text-dark);
+    }
+
+    .vocab-bn {
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .lesson-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-light);
+      font-size: 0.9rem;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stat strong {
+      color: var(--blue);
+    }
+
+    @media (max-width: 768px) {
+      .lesson-selector {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.6rem;
+      }
+
+      .lesson-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .lesson-content {
+        padding: 1rem;
+      }
+
+      .vocab-table {
+        font-size: 0.85rem;
+      }
+
+      .vocab-table th,
+      .vocab-table td {
+        padding: 0.6rem 0.8rem;
+      }
+
+      .vocab-jp {
+        font-size: 0.9rem;
+      }
+
+      .lesson-stats {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -50,115 +212,97 @@
 </nav>
 
 <!-- ===== PAGE HEADER ===== -->
-<div class="page-header">
+<header class="page-header">
   <h1>📚 N5 Vocabulary</h1>
-  <p class="jp-title">N5 単語リスト · এন৫ শব্দভাণ্ডার</p>
-  <p class="subtitle">500+ N5 words with English &amp; Bangla (বাংলা). Click any card to flip!</p>
-</div>
+  <p class="subtitle">25 Lessons • 450+ Words</p>
+  <p class="jp">日本語 N5 語彙</p>
+</header>
 
 <!-- ===== MAIN ===== -->
 <main>
+  <!-- Lesson Selector -->
+  <div class="lesson-selector" id="lessonSelector"></div>
 
-  <div class="alert alert-info">
-    💡 <strong>How to use:</strong> Click a card to flip and see the meaning in English &amp; বাংলা. Search or filter by category.
-  </div>
-
-  <!-- Controls -->
-  <div class="vocab-controls">
-    <input type="text" id="vocab-search" placeholder="🔍 Search Japanese, romaji, English or বাংলা…" />
-    <select id="vocab-filter">
-      <option value="">All Categories</option>
-      <option value="greetings">👋 Greetings</option>
-      <option value="numbers">🔢 Numbers</option>
-      <option value="time">🕐 Time</option>
-      <option value="days">📅 Days</option>
-      <option value="months">🗓️ Months</option>
-      <option value="family">👨‍👩‍👧 Family</option>
-      <option value="body">🧍 Body</option>
-      <option value="food">🍜 Food &amp; Drink</option>
-      <option value="colors">🎨 Colors</option>
-      <option value="places">🏠 Places</option>
-      <option value="verbs">🏃 Verbs</option>
-      <option value="adjectives">✨ Adjectives</option>
-      <option value="daily">📱 Daily Life</option>
-      <option value="clothing">👘 Clothing</option>
-      <option value="nature">🌿 Nature</option>
-      <option value="school">🏫 School</option>
-      <option value="animals">🐾 Animals</option>
-      <option value="directions">🧭 Directions</option>
-      <option value="questions">❓ Question Words</option>
-      <option value="adverbs">💬 Adverbs</option>
-    </select>
-  </div>
-
-  <div id="word-count" class="count-badge">Loading…</div>
-  <div class="vocab-grid" id="vocab-grid"></div>
+  <!-- Lesson Content -->
+  <div class="lesson-content" id="lessonContent"></div>
 
 </main>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-inner">
-    <p class="footer-quote">Welcome to Japanese Learning Station. Never give up — every step you take brings you closer to your goal.</p>
-    <div class="footer-divider"></div>
-    <p class="footer-quote-jp">日本語学習ステーションへようこそ。あきらめずに、一歩一歩進めば目標に近づきます。</p>
-    <p class="footer-copy">© 2025 Japanese Learning Station · JLPT N5 Beginner Course</p>
-  </div>
-</footer>
-
-<script src="vocab-data.js"></script>
+<!-- ===== SCRIPTS ===== -->
+<script src="vocab-lessons.js"></script>
 <script src="script.js"></script>
 <script>
-const CAT = {
-  greetings:'👋 Greetings', numbers:'🔢 Numbers', time:'🕐 Time',
-  days:'📅 Days', months:'🗓️ Months', family:'👨‍👩‍👧 Family',
-  body:'🧍 Body', food:'🍜 Food', colors:'🎨 Colors',
-  places:'🏠 Places', verbs:'🏃 Verbs', adjectives:'✨ Adjectives',
-  daily:'📱 Daily', clothing:'👘 Clothing', nature:'🌿 Nature',
-  school:'🏫 School', animals:'🐾 Animals', directions:'🧭 Directions',
-  questions:'❓ Questions', adverbs:'💬 Adverbs'
-};
+  const lessonSelector = document.getElementById('lessonSelector');
+  const lessonContent = document.getElementById('lessonContent');
+  let currentLesson = 1;
 
-function buildCard(w) {
-  const div = document.createElement('div');
-  div.className = 'vocab-card';
-  div.dataset.category = w.c;
-  div.innerHTML = `
-    <div class="front">
-      <div class="jp-word">${w.k}</div>
-      <div class="romaji">${w.r}</div>
-      <span class="category-tag">${CAT[w.c] || w.c}</span>
-    </div>
-    <div class="back">
-      <div class="jp-word">${w.k}</div>
-      <div class="romaji">${w.r}</div>
-      <div class="meaning">${w.e}</div>
-      <div class="bangla">🇧🇩 ${w.b}</div>
-    </div>`;
-  div.addEventListener('click', () => div.classList.toggle('flipped'));
-  return div;
-}
+  // Render lesson buttons
+  VOCAB_LESSONS.forEach((lesson) => {
+    const btn = document.createElement('button');
+    btn.className = `lesson-btn ${lesson.lesson === 1 ? 'active' : ''}`;
+    btn.textContent = `Lesson ${lesson.lesson}`;
+    btn.onclick = () => selectLesson(lesson.lesson);
+    lessonSelector.appendChild(btn);
+  });
 
-function render(list) {
-  const grid = document.getElementById('vocab-grid');
-  const badge = document.getElementById('word-count');
-  grid.innerHTML = '';
-  list.forEach(w => grid.appendChild(buildCard(w)));
-  badge.textContent = list.length + ' words';
-}
+  function selectLesson(lessonNum) {
+    currentLesson = lessonNum;
+    const lesson = VOCAB_LESSONS.find(l => l.lesson === lessonNum);
 
-function filter() {
-  const q   = document.getElementById('vocab-search').value.toLowerCase();
-  const cat = document.getElementById('vocab-filter').value;
-  render(VOCAB.filter(w =>
-    (!q   || (w.k+w.r+w.e+w.b).toLowerCase().includes(q)) &&
-    (!cat || w.c === cat)
-  ));
-}
+    // Update button states
+    document.querySelectorAll('.lesson-btn').forEach((btn, idx) => {
+      btn.classList.toggle('active', (idx + 1) === lessonNum);
+    });
 
-document.getElementById('vocab-search').addEventListener('input',  filter);
-document.getElementById('vocab-filter').addEventListener('change', filter);
-render(VOCAB);
+    // Render lesson content
+    const html = `
+      <div class="lesson-title">
+        <span class="number">${lesson.lesson}</span>
+        <span>${lesson.title}</span>
+      </div>
+
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th style="width: 50px; text-align: center;">No.</th>
+            <th style="width: 25%;">Japanese (Romaji)</th>
+            <th style="width: 20%;">English</th>
+            <th style="width: 25%;">Bangla (বাংলা)</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${lesson.words.map(word => `
+            <tr>
+              <td class="vocab-num">${word.n}</td>
+              <td class="vocab-jp">
+                ${word.j}
+                ${word.k ? `<span class="kanji">${word.k}</span>` : ''}
+              </td>
+              <td class="vocab-en">${word.e}</td>
+              <td class="vocab-bn">${word.b}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+
+      <div class="lesson-stats">
+        <div class="stat">
+          <span>📝 Words in lesson:</span>
+          <strong>${lesson.words.length}</strong>
+        </div>
+        <div class="stat">
+          <span>✅ Total words:</span>
+          <strong>${VOCAB_LESSONS.reduce((sum, l) => sum + l.words.length, 0)}</strong>
+        </div>
+      </div>
+    `;
+
+    lessonContent.innerHTML = html;
+  }
+
+  // Load first lesson on page load
+  selectLesson(1);
 </script>
+
 </body>
 </html>
