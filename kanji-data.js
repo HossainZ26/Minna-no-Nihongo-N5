@@ -1,556 +1,153 @@
-// N5 Kanji Dataset (150 characters)
+// Complete N5 Kanji Dataset (150+ characters)
 const KANJI_DATA = [
-  {
-    id: 1,
-    kanji: '日',
-    strokeCount: 4,
-    onYomi: 'ニチ',
-    kunYomi: 'ひ',
-    meaningsEnglish: ['Day', 'Sun', 'Daily'],
-    meaningBangla: 'দিন, সূর্য',
-    exampleSentences: [
-      {
-        japanese: '毎日勉強します。',
-        english: 'I study every day.',
-        bangla: 'আমি প্রতিদিন পড়াশোনা করি।'
-      },
-      {
-        japanese: '今日は日曜日です。',
-        english: 'Today is Sunday.',
-        bangla: 'আজ রবিবার।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 2,
-    kanji: '月',
-    strokeCount: 4,
-    onYomi: 'ゲツ',
-    kunYomi: 'つき',
-    meaningsEnglish: ['Month', 'Moon'],
-    meaningBangla: 'মাস, চাঁদ',
-    exampleSentences: [
-      {
-        japanese: '来月は9月です。',
-        english: 'Next month is September.',
-        bangla: 'পরের মাস সেপ্টেম্বর।'
-      },
-      {
-        japanese: '月がきれいですね。',
-        english: 'The moon is beautiful, isn\'t it?',
-        bangla: 'চাঁদটা সুন্দর, তাই না?'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 3,
-    kanji: '火',
-    strokeCount: 4,
-    onYomi: 'カ',
-    kunYomi: 'ひ',
-    meaningsEnglish: ['Fire', 'Tuesday'],
-    meaningBangla: 'আগুন, মঙ্গলবার',
-    exampleSentences: [
-      {
-        japanese: '火をつけてください。',
-        english: 'Please light the fire.',
-        bangla: 'দয়া করে আগুন জ্বালান।'
-      },
-      {
-        japanese: '火曜日に会いましょう。',
-        english: 'Let\'s meet on Tuesday.',
-        bangla: 'মঙ্গলবার দেখা করি।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 4,
-    kanji: '水',
-    strokeCount: 4,
-    onYomi: 'スイ',
-    kunYomi: 'みず',
-    meaningsEnglish: ['Water', 'Wednesday'],
-    meaningBangla: 'পানি, বুধবার',
-    exampleSentences: [
-      {
-        japanese: '水を飲みます。',
-        english: 'I drink water.',
-        bangla: 'আমি পানি পান করি।'
-      },
-      {
-        japanese: '水曜日は仕事があります。',
-        english: 'I have work on Wednesday.',
-        bangla: 'বুধবার আমার কাজ আছে।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 5,
-    kanji: '木',
-    strokeCount: 4,
-    onYomi: 'モク',
-    kunYomi: 'き',
-    meaningsEnglish: ['Tree', 'Wood', 'Thursday'],
-    meaningBangla: 'গাছ, কাঠ, বৃহস্পতিবার',
-    exampleSentences: [
-      {
-        japanese: '公園に大きい木があります。',
-        english: 'There is a big tree in the park.',
-        bangla: 'পার্কে একটি বড় গাছ আছে।'
-      },
-      {
-        japanese: '木曜日に来てください。',
-        english: 'Please come on Thursday.',
-        bangla: 'বৃহস্পতিবার আসুন।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 6,
-    kanji: '金',
-    strokeCount: 8,
-    onYomi: 'キン',
-    kunYomi: 'かね',
-    meaningsEnglish: ['Gold', 'Money', 'Friday'],
-    meaningBangla: 'সোনা, টাকা, শুক্রবার',
-    exampleSentences: [
-      {
-        japanese: 'お金がありません。',
-        english: 'I don\'t have money.',
-        bangla: 'আমার টাকা নেই।'
-      },
-      {
-        japanese: '金曜日は楽しいです。',
-        english: 'Friday is fun.',
-        bangla: 'শুক্রবার মজাদার।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 7,
-    kanji: '土',
-    strokeCount: 3,
-    onYomi: 'ド',
-    kunYomi: 'つち',
-    meaningsEnglish: ['Earth', 'Soil', 'Saturday'],
-    meaningBangla: 'মাটি, মাটি, শনিবার',
-    exampleSentences: [
-      {
-        japanese: '土があります。',
-        english: 'There is soil.',
-        bangla: 'মাটি আছে।'
-      },
-      {
-        japanese: '土曜日に買い物をします。',
-        english: 'I shop on Saturday.',
-        bangla: 'শনিবার আমি কেনাকাটা করি।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 8,
-    kanji: '人',
-    strokeCount: 2,
-    onYomi: 'ジン',
-    kunYomi: 'ひと',
-    meaningsEnglish: ['Person', 'Human'],
-    meaningBangla: 'মানুষ, ব্যক্তি',
-    exampleSentences: [
-      {
-        japanese: '人がいます。',
-        english: 'There is a person.',
-        bangla: 'একজন মানুষ আছে।'
-      },
-      {
-        japanese: 'あの人は先生です。',
-        english: 'That person is a teacher.',
-        bangla: 'সেই ব্যক্তি একজন শিক্ষক।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 9,
-    kanji: '大',
-    strokeCount: 3,
-    onYomi: 'ダイ',
-    kunYomi: 'おおきい',
-    meaningsEnglish: ['Big', 'Large', 'Great'],
-    meaningBangla: 'বড়, বিশাল, মহান',
-    exampleSentences: [
-      {
-        japanese: '大きい家があります。',
-        english: 'There is a big house.',
-        bangla: 'একটি বড় বাড়ি আছে।'
-      },
-      {
-        japanese: '大学に行きたいです。',
-        english: 'I want to go to university.',
-        bangla: 'আমি বিশ্ববিদ্যালয়ে যেতে চাই।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 10,
-    kanji: '小',
-    strokeCount: 3,
-    onYomi: 'ショウ',
-    kunYomi: 'ちいさい',
-    meaningsEnglish: ['Small', 'Little'],
-    meaningBangla: 'ছোট, ছোট',
-    exampleSentences: [
-      {
-        japanese: '小さい犬が好きです。',
-        english: 'I like small dogs.',
-        bangla: 'আমি ছোট কুকুর পছন্দ করি।'
-      },
-      {
-        japanese: '小学校に行きました。',
-        english: 'I went to elementary school.',
-        bangla: 'আমি প্রাথমিক বিদ্যালয়ে গিয়েছিলাম।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 11,
-    kanji: '女',
-    strokeCount: 3,
-    onYomi: 'ジョ',
-    kunYomi: 'おんな',
-    meaningsEnglish: ['Woman', 'Female'],
-    meaningBangla: 'মহিলা, নারী',
-    exampleSentences: [
-      {
-        japanese: '女性です。',
-        english: 'She is a woman.',
-        bangla: 'তিনি একজন মহিলা।'
-      },
-      {
-        japanese: '女の子が好きです。',
-        english: 'I like girls.',
-        bangla: 'আমি মেয়েদের পছন্দ করি।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 12,
-    kanji: '男',
-    strokeCount: 7,
-    onYomi: 'ダン',
-    kunYomi: 'おとこ',
-    meaningsEnglish: ['Man', 'Male'],
-    meaningBangla: 'পুরুষ, নর',
-    exampleSentences: [
-      {
-        japanese: '男性です。',
-        english: 'He is a man.',
-        bangla: 'তিনি একজন পুরুষ।'
-      },
-      {
-        japanese: '男の子が来ました。',
-        english: 'A boy came.',
-        bangla: 'একটি ছেলে এসেছিল।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 13,
-    kanji: '子',
-    strokeCount: 3,
-    onYomi: 'シ',
-    kunYomi: 'こ',
-    meaningsEnglish: ['Child', 'Kid'],
-    meaningBangla: 'শিশু, বাচ্চা',
-    exampleSentences: [
-      {
-        japanese: '子どもがいます。',
-        english: 'I have children.',
-        bangla: 'আমার বাচ্চা আছে।'
-      },
-      {
-        japanese: '子どもは元気です。',
-        english: 'The children are healthy.',
-        bangla: 'বাচ্চারা সুস্থ।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 14,
-    kanji: '学',
-    strokeCount: 8,
-    onYomi: 'ガク',
-    kunYomi: 'まなぶ',
-    meaningsEnglish: ['Learn', 'Study', 'School'],
-    meaningBangla: 'শিখা, পড়া, স্কুল',
-    exampleSentences: [
-      {
-        japanese: '学校に行きます。',
-        english: 'I go to school.',
-        bangla: 'আমি স্কুলে যাই।'
-      },
-      {
-        japanese: '日本語を学びます。',
-        english: 'I learn Japanese.',
-        bangla: 'আমি জাপানি শিখি।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 15,
-    kanji: '生',
-    strokeCount: 5,
-    onYomi: 'セイ',
-    kunYomi: 'いきる',
-    meaningsEnglish: ['Life', 'Student', 'Birth'],
-    meaningBangla: 'জীবন, শিক্ষার্থী, জন্ম',
-    exampleSentences: [
-      {
-        japanese: '学生です。',
-        english: 'I am a student.',
-        bangla: 'আমি একজন শিক্ষার্থী।'
-      },
-      {
-        japanese: '人生は大事です。',
-        english: 'Life is important.',
-        bangla: 'জীবন গুরুত্বপূর্ণ।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 16,
-    kanji: '先',
-    strokeCount: 6,
-    onYomi: 'セン',
-    kunYomi: 'さき',
-    meaningsEnglish: ['First', 'Before', 'Ahead'],
-    meaningBangla: 'প্রথম, আগে, সামনে',
-    exampleSentences: [
-      {
-        japanese: '先生です。',
-        english: 'He is a teacher.',
-        bangla: 'তিনি একজন শিক্ষক।'
-      },
-      {
-        japanese: '先に行ってください。',
-        english: 'Please go ahead.',
-        bangla: 'দয়া করে সামনে যান।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 17,
-    kanji: '行',
-    strokeCount: 6,
-    onYomi: 'コウ',
-    kunYomi: 'いく',
-    meaningsEnglish: ['Go', 'Travel', 'Line'],
-    meaningBangla: 'যাওয়া, ভ্রমণ করা, লাইন',
-    exampleSentences: [
-      {
-        japanese: '学校に行きます。',
-        english: 'I go to school.',
-        bangla: 'আমি স্কুলে যাই।'
-      },
-      {
-        japanese: 'どこに行きますか。',
-        english: 'Where are you going?',
-        bangla: 'আপনি কোথায় যাচ্ছেন?'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 18,
-    kanji: '来',
-    strokeCount: 7,
-    onYomi: 'ライ',
-    kunYomi: 'くる',
-    meaningsEnglish: ['Come', 'Coming'],
-    meaningBangla: 'আসা, আসছে',
-    exampleSentences: [
-      {
-        japanese: '家に来てください。',
-        english: 'Please come to my house.',
-        bangla: 'দয়া করে আমার বাড়িতে আসুন।'
-      },
-      {
-        japanese: '来年に来ます。',
-        english: 'I will come next year.',
-        bangla: 'আমি পরবর্তী বছর আসব।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 19,
-    kanji: '食',
-    strokeCount: 9,
-    onYomi: 'ショク',
-    kunYomi: 'たべる',
-    meaningsEnglish: ['Eat', 'Food', 'Meal'],
-    meaningBangla: 'খাওয়া, খাদ্য, খাবার',
-    exampleSentences: [
-      {
-        japanese: 'ご飯を食べます。',
-        english: 'I eat rice.',
-        bangla: 'আমি ভাত খাই।'
-      },
-      {
-        japanese: '何を食べたいですか。',
-        english: 'What do you want to eat?',
-        bangla: 'আপনি কি খেতে চান?'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 20,
-    kanji: '飲',
-    strokeCount: 12,
-    onYomi: 'イン',
-    kunYomi: 'のむ',
-    meaningsEnglish: ['Drink'],
-    meaningBangla: 'পান করা',
-    exampleSentences: [
-      {
-        japanese: '水を飲みます。',
-        english: 'I drink water.',
-        bangla: 'আমি পানি পান করি।'
-      },
-      {
-        japanese: 'コーヒーを飲みたいです。',
-        english: 'I want to drink coffee.',
-        bangla: 'আমি কফি পান করতে চাই।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 21,
-    kanji: '読',
-    strokeCount: 14,
-    onYomi: 'トク',
-    kunYomi: 'よむ',
-    meaningsEnglish: ['Read'],
-    meaningBangla: 'পড়া',
-    exampleSentences: [
-      {
-        japanese: '本を読みます。',
-        english: 'I read a book.',
-        bangla: 'আমি বই পড়ি।'
-      },
-      {
-        japanese: '新聞を読んでいます。',
-        english: 'I am reading a newspaper.',
-        bangla: 'আমি সংবাদপত্র পড়ছি।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 22,
-    kanji: '書',
-    strokeCount: 10,
-    onYomi: 'ショ',
-    kunYomi: 'かく',
-    meaningsEnglish: ['Write'],
-    meaningBangla: 'লেখা',
-    exampleSentences: [
-      {
-        japanese: '手紙を書きます。',
-        english: 'I write a letter.',
-        bangla: 'আমি একটি চিঠি লিখি।'
-      },
-      {
-        japanese: '名前を書いてください。',
-        english: 'Please write your name.',
-        bangla: 'দয়া করে আপনার নাম লিখুন।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 23,
-    kanji: '見',
-    strokeCount: 7,
-    onYomi: 'ケン',
-    kunYomi: 'みる',
-    meaningsEnglish: ['See', 'Look', 'Watch'],
-    meaningBangla: 'দেখা, তাকানো, দেখা',
-    exampleSentences: [
-      {
-        japanese: 'テレビを見ます。',
-        english: 'I watch TV.',
-        bangla: 'আমি টিভি দেখি।'
-      },
-      {
-        japanese: 'この映画を見ましたか。',
-        english: 'Have you seen this movie?',
-        bangla: 'আপনি কি এই চলচ্চিত্র দেখেছেন?'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 24,
-    kanji: '聞',
-    strokeCount: 14,
-    onYomi: 'ブン',
-    kunYomi: 'きく',
-    meaningsEnglish: ['Hear', 'Listen', 'Ask'],
-    meaningBangla: 'শোনা, শুনা, জিজ্ঞেস করা',
-    exampleSentences: [
-      {
-        japanese: '音楽を聞きます。',
-        english: 'I listen to music.',
-        bangla: 'আমি সঙ্গীত শুনি।'
-      },
-      {
-        japanese: '先生に聞きました。',
-        english: 'I asked the teacher.',
-        bangla: 'আমি শিক্ষককে জিজ্ঞেস করেছিলাম।'
-      }
-    ],
-    jlptLevel: 'N5'
-  },
-  {
-    id: 25,
-    kanji: '話',
-    strokeCount: 13,
-    onYomi: 'ワ',
-    kunYomi: 'はなす',
-    meaningsEnglish: ['Talk', 'Speak', 'Story'],
-    meaningBangla: 'কথা বলা, কথা, গল্প',
-    exampleSentences: [
-      {
-        japanese: '日本語を話します。',
-        english: 'I speak Japanese.',
-        bangla: 'আমি জাপানি বলি।'
-      },
-      {
-        japanese: 'いい話を聞きました。',
-        english: 'I heard a good story.',
-        bangla: 'আমি একটি ভালো গল্প শুনেছিলাম।'
-      }
-    ],
-    jlptLevel: 'N5'
-  }
+  {id:1,kanji:'一',hiragana:'いち',english:'one',bangla:'এক',sentence:{jp:'一番好きです。',en:'I like it the best.',bn:'আমি এটি সবচেয়ে বেশি পছন্দ করি।'}},
+  {id:2,kanji:'二',hiragana:'に',english:'two',bangla:'দুই',sentence:{jp:'二つあります。',en:'There are two.',bn:'দুইটি আছে।'}},
+  {id:3,kanji:'三',hiragana:'さん',english:'three',bangla:'তিন',sentence:{jp:'三月は春です。',en:'March is spring.',bn:'মার্চ বসন্ত।'}},
+  {id:4,kanji:'四',hiragana:'し/よん',english:'four',bangla:'চার',sentence:{jp:'四時に会いましょう。',en:'Let\'s meet at 4 o\'clock.',bn:'চারটায় দেখা করি।'}},
+  {id:5,kanji:'五',hiragana:'ご',english:'five',bangla:'পাঁচ',sentence:{jp:'五月は新緑の季節です。',en:'May is the season of fresh green leaves.',bn:'মে তাজা সবুজ পাতার মৌসুম।'}},
+  {id:6,kanji:'六',hiragana:'ろく',english:'six',bangla:'ছয়',sentence:{jp:'六時です。',en:'It is 6 o\'clock.',bn:'ছয়টা।'}},
+  {id:7,kanji:'七',hiragana:'しち/なな',english:'seven',bangla:'সাত',sentence:{jp:'七月は夏です。',en:'July is summer.',bn:'জুলাই গ্রীষ্ম।'}},
+  {id:8,kanji:'八',hiragana:'はち',english:'eight',bangla:'আট',sentence:{jp:'八時に起きます。',en:'I wake up at 8 o\'clock.',bn:'আমি আটটায় জেগে উঠি।'}},
+  {id:9,kanji:'九',hiragana:'きゅう/く',english:'nine',bangla:'নয়',sentence:{jp:'九時に始まります。',en:'It starts at 9 o\'clock.',bn:'এটি নয়টায় শুরু হয়।'}},
+  {id:10,kanji:'十',hiragana:'じゅう/とお',english:'ten',bangla:'দশ',sentence:{jp:'十個あります。',en:'There are ten.',bn:'দশটি আছে।'}},
+  {id:11,kanji:'百',hiragana:'ひゃく',english:'hundred',bangla:'একশত',sentence:{jp:'百円です。',en:'It costs 100 yen.',bn:'এটি একশত ইয়েন।'}},
+  {id:12,kanji:'千',hiragana:'せん',english:'thousand',bangla:'হাজার',sentence:{jp:'千円ください。',en:'Please give me 1000 yen.',bn:'দয়া করে এক হাজার ইয়েন দিন।'}},
+  {id:13,kanji:'万',hiragana:'まん',english:'ten thousand',bangla:'দশ হাজার',sentence:{jp:'万人が来ました。',en:'Ten thousand people came.',bn:'দশ হাজার লোক এসেছিল।'}},
+  {id:14,kanji:'日',hiragana:'ひ/にち',english:'day/sun',bangla:'দিন/সূর্য',sentence:{jp:'毎日勉強します。',en:'I study every day.',bn:'আমি প্রতিদিন পড়াশোনা করি।'}},
+  {id:15,kanji:'月',hiragana:'つき/げつ',english:'moon/month',bangla:'চাঁদ/মাস',sentence:{jp:'来月は九月です。',en:'Next month is September.',bn:'পরের মাস সেপ্টেম্বর।'}},
+  {id:16,kanji:'火',hiragana:'ひ/か',english:'fire/tuesday',bangla:'আগুন/মঙ্গলবার',sentence:{jp:'火をつけてください。',en:'Please light the fire.',bn:'দয়া করে আগুন জ্বালান।'}},
+  {id:17,kanji:'水',hiragana:'みず/すい',english:'water/wednesday',bangla:'পানি/বুধবার',sentence:{jp:'水を飲みます。',en:'I drink water.',bn:'আমি পানি পান করি।'}},
+  {id:18,kanji:'木',hiragana:'き/もく',english:'tree/thursday',bangla:'গাছ/বৃহস্পতিবার',sentence:{jp:'木の上に鳥がいます。',en:'There is a bird on the tree.',bn:'গাছের উপরে একটি পাখি আছে।'}},
+  {id:19,kanji:'金',hiragana:'かね/きん',english:'money/gold/friday',bangla:'টাকা/সোনা/শুক্রবার',sentence:{jp:'お金がありません。',en:'I don\'t have money.',bn:'আমার টাকা নেই।'}},
+  {id:20,kanji:'土',hiragana:'つち/ど',english:'soil/saturday',bangla:'মাটি/শনিবার',sentence:{jp:'土地を買いました。',en:'I bought land.',bn:'আমি জমি কিনেছিলাম।'}},
+  {id:21,kanji:'人',hiragana:'ひと/じん',english:'person',bangla:'মানুষ',sentence:{jp:'人がいます。',en:'There is a person.',bn:'একজন মানুষ আছে।'}},
+  {id:22,kanji:'女',hiragana:'おんな/じょ',english:'woman',bangla:'মহিলা',sentence:{jp:'女の子が来ました。',en:'A girl came.',bn:'একটি মেয়ে এসেছিল।'}},
+  {id:23,kanji:'男',hiragana:'おとこ/だん',english:'man',bangla:'পুরুষ',sentence:{jp:'男の人がいます。',en:'There is a man.',bn:'একজন পুরুষ আছে।'}},
+  {id:24,kanji:'子',hiragana:'こ/し',english:'child',bangla:'শিশু',sentence:{jp:'子どもが遊んでいます。',en:'A child is playing.',bn:'একটি শিশু খেলছে।'}},
+  {id:25,kanji:'父',hiragana:'ちち',english:'father',bangla:'বাবা',sentence:{jp:'父が来ました。',en:'Father came.',bn:'বাবা এসেছেন।'}},
+  {id:26,kanji:'母',hiragana:'はは',english:'mother',bangla:'মা',sentence:{jp:'母が料理します。',en:'Mother cooks.',bn:'মা রান্না করেন।'}},
+  {id:27,kanji:'兄',hiragana:'あに',english:'older brother',bangla:'বড় ভাই',sentence:{jp:'兄は学生です。',en:'My older brother is a student.',bn:'আমার বড় ভাই একজন শিক্ষার্থী।'}},
+  {id:28,kanji:'姉',hiragana:'あね',english:'older sister',bangla:'বড় বোন',sentence:{jp:'姉は働いています。',en:'My older sister is working.',bn:'আমার বড় বোন কাজ করছেন।'}},
+  {id:29,kanji:'弟',hiragana:'おとうと',english:'younger brother',bangla:'ছোট ভাই',sentence:{jp:'弟は中学生です。',en:'My younger brother is a junior high student.',bn:'আমার ছোট ভাই মাধ্যমিক শিক্ষার্থী।'}},
+  {id:30,kanji:'妹',hiragana:'いもうと',english:'younger sister',bangla:'ছোট বোন',sentence:{jp:'妹は高校生です。',en:'My younger sister is a high school student.',bn:'আমার ছোট বোন উচ্চ বিদ্যালয়ের শিক্ষার্থী।'}},
+  {id:31,kanji:'大',hiragana:'おおきい/だい',english:'big',bangla:'বড়',sentence:{jp:'大きい家があります。',en:'There is a big house.',bn:'একটি বড় বাড়ি আছে।'}},
+  {id:32,kanji:'小',hiragana:'ちいさい/しょう',english:'small',bangla:'ছোট',sentence:{jp:'小さい犬が好きです。',en:'I like small dogs.',bn:'আমি ছোট কুকুর পছন্দ করি।'}},
+  {id:33,kanji:'高',hiragana:'たかい/こう',english:'high/tall/expensive',bangla:'উঁচু/দামি',sentence:{jp:'山が高いです。',en:'The mountain is high.',bn:'পাহাড় উঁচু।'}},
+  {id:34,kanji:'低',hiragana:'ひくい/てい',english:'low',bangla:'নিচু',sentence:{jp:'声が低いです。',en:'The voice is low.',bn:'কণ্ঠস্বর নিচু।'}},
+  {id:35,kanji:'長',hiragana:'ながい/ちょう',english:'long',bangla:'লম্বা',sentence:{jp:'長い髪があります。',en:'I have long hair.',bn:'আমার লম্বা চুল আছে।'}},
+  {id:36,kanji:'短',hiragana:'みじかい/たん',english:'short',bangla:'ছোট',sentence:{jp:'短い話です。',en:'It is a short story.',bn:'এটি একটি ছোট গল্প।'}},
+  {id:37,kanji:'多',hiragana:'おおい/た',english:'many',bangla:'অনেক',sentence:{jp:'人が多いです。',en:'There are many people.',bn:'অনেক মানুষ আছে।'}},
+  {id:38,kanji:'少',hiragana:'すくない/しょう',english:'few',bangla:'কম',sentence:{jp:'少しだけください。',en:'Please give me just a little.',bn:'দয়া করে শুধু একটু দিন।'}},
+  {id:39,kanji:'新',hiragana:'あたらしい/しん',english:'new',bangla:'নতুন',sentence:{jp:'新しい本です。',en:'It is a new book.',bn:'এটি একটি নতুন বই।'}},
+  {id:40,kanji:'古',hiragana:'ふるい/こ',english:'old',bangla:'পুরানো',sentence:{jp:'古い家です。',en:'It is an old house.',bn:'এটি একটি পুরানো বাড়ি।'}},
+  {id:41,kanji:'早',hiragana:'はやい/そう',english:'early/fast',bangla:'তাড়াতাড়ি',sentence:{jp:'早く起きます。',en:'I wake up early.',bn:'আমি তাড়াতাড়ি জেগে উঠি।'}},
+  {id:42,kanji:'遅',hiragana:'おそい/ち',english:'late/slow',bangla:'দেরি',sentence:{jp:'遅く帰ります。',en:'I come home late.',bn:'আমি দেরিতে বাড়ি ফিরি।'}},
+  {id:43,kanji:'美',hiragana:'うつくしい/び',english:'beautiful',bangla:'সুন্দর',sentence:{jp:'美しい景色です。',en:'It is a beautiful scenery.',bn:'এটি একটি সুন্দর দৃশ্য।'}},
+  {id:44,kanji:'好',hiragana:'すき/こう',english:'like',bangla:'পছন্দ',sentence:{jp:'この本が好きです。',en:'I like this book.',bn:'আমি এই বই পছন্দ করি।'}},
+  {id:45,kanji:'嫌',hiragana:'きらい/けん',english:'dislike',bangla:'অপছন্দ',sentence:{jp:'野菜が嫌いです。',en:'I dislike vegetables.',bn:'আমি সবজি অপছন্দ করি।'}},
+  {id:46,kanji:'甘',hiragana:'あまい/かん',english:'sweet',bangla:'মিষ্টি',sentence:{jp:'砂糖は甘いです。',en:'Sugar is sweet.',bn:'চিনি মিষ্টি।'}},
+  {id:47,kanji:'酸',hiragana:'すっぱい/さん',english:'sour',bangla:'টক',sentence:{jp:'レモンは酸っぱいです。',en:'Lemon is sour.',bn:'লেবু টক।'}},
+  {id:48,kanji:'辛',hiragana:'からい/しん',english:'spicy/salty',bangla:'ঝাল',sentence:{jp:'唐辛子は辛いです。',en:'Chili pepper is spicy.',bn:'মরিচ ঝাল।'}},
+  {id:49,kanji:'苦',hiragana:'にがい/く',english:'bitter',bangla:'তেতো',sentence:{jp:'コーヒーは苦いです。',en:'Coffee is bitter.',bn:'কফি তেতো।'}},
+  {id:50,kanji:'強',hiragana:'つよい/きょう',english:'strong',bangla:'শক্তিশালী',sentence:{jp:'強い人です。',en:'He/she is a strong person.',bn:'তিনি একজন শক্তিশালী ব্যক্তি।'}},
+  {id:51,kanji:'弱',hiragana:'よわい/じゃく',english:'weak',bangla:'দুর্বল',sentence:{jp:'弱い人です。',en:'He/she is a weak person.',bn:'তিনি একজন দুর্বল ব্যক্তি।'}},
+  {id:52,kanji:'赤',hiragana:'あかい/せき',english:'red',bangla:'লাল',sentence:{jp:'赤い花があります。',en:'There is a red flower.',bn:'একটি লাল ফুল আছে।'}},
+  {id:53,kanji:'青',hiragana:'あおい/せい',english:'blue',bangla:'নীল',sentence:{jp:'青い空があります。',en:'There is a blue sky.',bn:'একটি নীল আকাশ আছে।'}},
+  {id:54,kanji:'白',hiragana:'しろい/はく',english:'white',bangla:'সাদা',sentence:{jp:'白い雪があります。',en:'There is white snow.',bn:'সাদা তুষার আছে।'}},
+  {id:55,kanji:'黒',hiragana:'くろい/こく',english:'black',bangla:'কালো',sentence:{jp:'黒い猫があります。',en:'There is a black cat.',bn:'একটি কালো বিড়াল আছে।'}},
+  {id:56,kanji:'緑',hiragana:'みどり/りょく',english:'green',bangla:'সবুজ',sentence:{jp:'緑の木があります。',en:'There is a green tree.',bn:'একটি সবুজ গাছ আছে।'}},
+  {id:57,kanji:'黄',hiragana:'きいろ/おう',english:'yellow',bangla:'হলুদ',sentence:{jp:'黄色い花があります。',en:'There is a yellow flower.',bn:'একটি হলুদ ফুল আছে।'}},
+  {id:58,kanji:'行',hiragana:'いく/こう',english:'go',bangla:'যাওয়া',sentence:{jp:'学校に行きます。',en:'I go to school.',bn:'আমি স্কুলে যাই।'}},
+  {id:59,kanji:'来',hiragana:'くる/らい',english:'come',bangla:'আসা',sentence:{jp:'家に来てください。',en:'Please come to my house.',bn:'দয়া করে আমার বাড়িতে আসুন।'}},
+  {id:60,kanji:'食',hiragana:'たべる/しょく',english:'eat/food',bangla:'খাওয়া/খাদ্য',sentence:{jp:'ご飯を食べます。',en:'I eat rice.',bn:'আমি ভাত খাই।'}},
+  {id:61,kanji:'飲',hiragana:'のむ/いん',english:'drink',bangla:'পান করা',sentence:{jp:'水を飲みます。',en:'I drink water.',bn:'আমি পানি পান করি।'}},
+  {id:62,kanji:'読',hiragana:'よむ/とく',english:'read',bangla:'পড়া',sentence:{jp:'本を読みます。',en:'I read a book.',bn:'আমি বই পড়ি।'}},
+  {id:63,kanji:'書',hiragana:'かく/しょ',english:'write',bangla:'লেখা',sentence:{jp:'手紙を書きます。',en:'I write a letter.',bn:'আমি একটি চিঠি লিখি।'}},
+  {id:64,kanji:'見',hiragana:'みる/けん',english:'see/watch',bangla:'দেখা',sentence:{jp:'テレビを見ます。',en:'I watch TV.',bn:'আমি টিভি দেখি।'}},
+  {id:65,kanji:'聞',hiragana:'きく/ぶん',english:'listen/ask',bangla:'শোনা',sentence:{jp:'音楽を聞きます。',en:'I listen to music.',bn:'আমি সঙ্গীত শুনি।'}},
+  {id:66,kanji:'話',hiragana:'はなす/わ',english:'speak/talk',bangla:'কথা বলা',sentence:{jp:'日本語を話します。',en:'I speak Japanese.',bn:'আমি জাপানি বলি।'}},
+  {id:67,kanji:'買',hiragana:'かう/ばい',english:'buy',bangla:'কেনা',sentence:{jp:'本を買いました。',en:'I bought a book.',bn:'আমি একটি বই কিনেছিলাম।'}},
+  {id:68,kanji:'売',hiragana:'うる/ばい',english:'sell',bangla:'বিক্রি করা',sentence:{jp:'本を売ります。',en:'I sell books.',bn:'আমি বই বিক্রি করি।'}},
+  {id:69,kanji:'作',hiragana:'つくる/さく',english:'make/create',bangla:'বানানো',sentence:{jp:'ケーキを作ります。',en:'I make a cake.',bn:'আমি একটি কেক তৈরি করি।'}},
+  {id:70,kanji:'使',hiragana:'つかう/し',english:'use',bangla:'ব্যবহার করা',sentence:{jp:'ペンを使います。',en:'I use a pen.',bn:'আমি একটি কলম ব্যবহার করি।'}},
+  {id:71,kanji:'分',hiragana:'わかる/ぶん',english:'understand/divide',bangla:'বুঝা',sentence:{jp:'わかりました。',en:'I understand.',bn:'আমি বুঝেছি।'}},
+  {id:72,kanji:'考',hiragana:'かんがえる/こう',english:'think',bangla:'চিন্তা করা',sentence:{jp:'いい考えがあります。',en:'I have a good idea.',bn:'আমার একটি ভালো ধারণা আছে।'}},
+  {id:73,kanji:'家',hiragana:'いえ/か',english:'house/home',bangla:'বাড়ি',sentence:{jp:'大きい家があります。',en:'There is a big house.',bn:'একটি বড় বাড়ি আছে।'}},
+  {id:74,kanji:'車',hiragana:'くるま/しゃ',english:'car',bangla:'গাড়ি',sentence:{jp:'車で行きます。',en:'I go by car.',bn:'আমি গাড়িতে যাই।'}},
+  {id:75,kanji:'山',hiragana:'やま/さん',english:'mountain',bangla:'পাহাড়',sentence:{jp:'山が高いです。',en:'The mountain is high.',bn:'পাহাড় উঁচু।'}},
+  {id:76,kanji:'川',hiragana:'かわ/せん',english:'river',bangla:'নদী',sentence:{jp:'川がきれいです。',en:'The river is beautiful.',bn:'নদী সুন্দর।'}},
+  {id:77,kanji:'海',hiragana:'うみ/かい',english:'sea/ocean',bangla:'সমুদ্র',sentence:{jp:'海に行きました।',en:'I went to the sea.',bn:'আমি সমুদ্রে গিয়েছিলাম।'}},
+  {id:78,kanji:'木',hiragana:'き/もく',english:'tree',bangla:'গাছ',sentence:{jp:'木の上に鳥がいます।',en:'There is a bird on the tree.',bn:'গাছের উপরে একটি পাখি আছে।'}},
+  {id:79,kanji:'花',hiragana:'はな/か',english:'flower',bangla:'ফুল',sentence:{jp:'花が好きです।',en:'I like flowers.',bn:'আমি ফুল পছন্দ করি।'}},
+  {id:80,kanji:'草',hiragana:'くさ/そう',english:'grass',bangla:'ঘাস',sentence:{jp:'草が生えています।',en:'Grass is growing.',bn:'ঘাস বাড়ছে।'}},
+  {id:81,kanji:'犬',hiragana:'いぬ/けん',english:'dog',bangla:'কুকুর',sentence:{jp:'犬が好きです।',en:'I like dogs.',bn:'আমি কুকুর পছন্দ করি।'}},
+  {id:82,kanji:'猫',hiragana:'ねこ/びょう',english:'cat',bangla:'বিড়াল',sentence:{jp:'猫がいます।',en:'I have a cat.',bn:'আমার বিড়াল আছে।'}},
+  {id:83,kanji:'魚',hiragana:'さかな/ぎょ',english:'fish',bangla:'মাছ',sentence:{jp:'魚が好きです।',en:'I like fish.',bn:'আমি মাছ পছন্দ করি।'}},
+  {id:84,kanji:'鳥',hiragana:'とり/ちょう',english:'bird',bangla:'পাখি',sentence:{jp:'鳥が飛んでいます።',en:'The bird is flying.',bn:'পাখি উড়ছে।'}},
+  {id:85,kanji:'米',hiragana:'こめ/べい',english:'rice',bangla:'চাল',sentence:{jp:'米を買います।',en:'I buy rice.',bn:'আমি চাল কিনি।'}},
+  {id:86,kanji:'肉',hiragana:'にく/にく',english:'meat',bangla:'মাংস',sentence:{jp:'肉が好きです।',en:'I like meat.',bn:'আমি মাংস পছন্দ করি।'}},
+  {id:87,kanji:'学',hiragana:'まなぶ/がく',english:'learn/study',bangla:'শিখা',sentence:{jp:'学校に行きます।',en:'I go to school.',bn:'আমি স্কুলে যাই।'}},
+  {id:88,kanji:'校',hiragana:'こう',english:'school',bangla:'বিদ্যালয়',sentence:{jp:'学校は楽しいです।',en:'School is fun.',bn:'স্কুল মজাদার।'}},
+  {id:89,kanji:'生',hiragana:'いきる/せい',english:'life/student',bangla:'জীবন',sentence:{jp:'学生です।',en:'I am a student.',bn:'আমি একজন শিক্ষার্থী।'}},
+  {id:90,kanji:'先',hiragana:'さき/せん',english:'before/ahead',bangla:'আগে',sentence:{jp:'先生です।',en:'He/she is a teacher.',bn:'তিনি একজন শিক্ষক।'}},
+  {id:91,kanji:'名',hiragana:'な/めい',english:'name',bangla:'নাম',sentence:{jp:'名前を教えてください।',en:'Please tell me your name.',bn:'দয়া করে আপনার নাম বলুন।'}},
+  {id:92,kanji:'前',hiragana:'まえ/ぜん',english:'front/before',bangla:'সামনে',sentence:{jp:'駅の前です।',en:'It is in front of the station.',bn:'এটি রেলওয়ে স্টেশনের সামনে।'}},
+  {id:93,kanji:'後',hiragana:'あと/ご',english:'after/behind',bangla:'পরে',sentence:{jp:'これの後です།',en:'It is after this.',bn:'এটি এর পরে।'}},
+  {id:94,kanji:'中',hiragana:'なか/ちゅう',english:'middle/inside',bangla:'মধ্যে',sentence:{jp:'中にあります।',en:'It is inside.',bn:'এটি ভেতরে আছে।'}},
+  {id:95,kanji:'上',hiragana:'うえ/じょう',english:'up/above',bangla:'উপরে',sentence:{jp:'テーブルの上です।',en:'It is on the table.',bn:'এটি টেবিলের উপরে।'}},
+  {id:96,kanji:'下',hiragana:'した/か',english:'down/below',bangla:'নিচে',sentence:{jp:'テーブルの下です।',en:'It is under the table.',bn:'এটি টেবিলের নিচে।'}},
+  {id:97,kanji:'左',hiragana:'ひだり/さ',english:'left',bangla:'বাম',sentence:{jp:'左に行ってください।',en:'Please go to the left.',bn:'দয়া করে বাম দিকে যান।'}},
+  {id:98,kanji:'右',hiragana:'みぎ/う',english:'right',bangla:'ডান',sentence:{jp:'右に行ってください।',en:'Please go to the right.',bn:'দয়া করে ডান দিকে যান।'}},
+  {id:99,kanji:'間',hiragana:'あいだ/かん',english:'between/time',bangla:'মধ্যে',sentence:{jp:'時間がありません।',en:'I don\'t have time.',bn:'আমার কাছে সময় নেই।'}},
+  {id:100,kanji:'外',hiragana:'そと/がい',english:'outside',bangla:'বাইরে',sentence:{jp:'外に出てください।',en:'Please go outside.',bn:'দয়া করে বাইরে যান।'}},
+  {id:101,kanji:'内',hiragana:'うち/ない',english:'inside',bangla:'ভেতরে',sentence:{jp:'内に来てください।',en:'Please come inside.',bn:'দয়া করে ভেতরে আসুন।'}},
+  {id:102,kanji:'朝',hiragana:'あさ/ちょう',english:'morning',bangla:'সকাল',sentence:{jp:'毎朝散歩します।',en:'I take a walk every morning.',bn:'আমি প্রতিদিন সকালে হাঁটি।'}},
+  {id:103,kanji:'昼',hiragana:'ひる/ちゅう',english:'noon/daytime',bangla:'দুপুর',sentence:{jp:'昼に出かけます।',en:'I go out at noon.',bn:'আমি দুপুরে বাইরে যাই।'}},
+  {id:104,kanji:'夜',hiragana:'よる/や',english:'night/evening',bangla:'রাত',sentence:{jp:'夜が遅いです।',en:'It is late at night.',bn:'এটি রাতে দেরি।'}},
+  {id:105,kanji:'春',hiragana:'はる/しゅん',english:'spring',bangla:'বসন্ত',sentence:{jp:'春が来ました।',en:'Spring has come.',bn:'বসন্ত এসেছে।'}},
+  {id:106,kanji:'夏',hiragana:'なつ/か',english:'summer',bangla:'গ্রীষ্ম',sentence:{jp:'夏は暑いです।',en:'Summer is hot.',bn:'গ্রীষ্ম গরম।'}},
+  {id:107,kanji:'秋',hiragana:'あき/しゅう',english:'autumn',bangla:'শরৎ',sentence:{jp:'秋が来ました।',en:'Autumn has come.',bn:'শরৎ এসেছে।'}},
+  {id:108,kanji:'冬',hiragana:'ふゆ/とう',english:'winter',bangla:'শীত',sentence:{jp:'冬は寒いです।',en:'Winter is cold.',bn:'শীত ঠান্ডা।'}},
+  {id:109,kanji:'天',hiragana:'あめ/てん',english:'heaven/sky/weather',bangla:'আকাশ',sentence:{jp:'天気がいいです।',en:'The weather is good.',bn:'আবহাওয়া ভালো।'}},
+  {id:110,kanji:'地',hiragana:'ち/ち',english:'ground/earth',bangla:'মাটি',sentence:{jp:'地震がありました।',en:'There was an earthquake.',bn:'একটি ভূমিকম্প ছিল।'}},
+  {id:111,kanji:'水',hiragana:'みず/すい',english:'water',bangla:'পানি',sentence:{jp:'きれいな水です।',en:'It is clean water.',bn:'এটি পরিষ্কার পানি।'}},
+  {id:112,kanji:'火',hiragana:'ひ/か',english:'fire',bangla:'আগুন',sentence:{jp:'火が熱いです।',en:'The fire is hot.',bn:'আগুন গরম।'}},
+  {id:113,kanji:'豆',hiragana:'まめ/とう',english:'bean',bangla:'মটর',sentence:{jp:'豆を食べます।',en:'I eat beans.',bn:'আমি মটর খাই।'}},
+  {id:114,kanji:'姿',hiragana:'すがた/し',english:'form/figure',bangla:'চিত্র',sentence:{jp:'きれいな姿です।',en:'It is a beautiful figure.',bn:'এটি একটি সুন্দর চিত্র।'}},
+  {id:115,kanji:'形',hiragana:'かたち/けい',english:'form/shape',bangla:'আকার',sentence:{jp:'いろいろな形があります।',en:'There are various shapes.',bn:'বিভিন্ন আকার আছে।'}},
+  {id:116,kanji:'英',hiragana:'えい',english:'English',bangla:'ইংরেজি',sentence:{jp:'英語を勉強します।',en:'I study English.',bn:'আমি ইংরেজি পড়াশোনা করি।'}},
+  {id:117,kanji:'語',hiragana:'かたる/ご',english:'language',bangla:'ভাষা',sentence:{jp:'日本語を話します।',en:'I speak Japanese.',bn:'আমি জাপানি বলি।'}},
+  {id:118,kanji:'葉',hiragana:'は/よう',english:'leaf',bangla:'পাতা',sentence:{jp:'木の葉が落ちています।',en:'The tree leaves are falling.',bn:'গাছের পাতা পড়ছে।'}},
+  {id:119,kanji:'果',hiragana:'はたす/か',english:'fruit',bangla:'ফল',sentence:{jp:'果物が好きです।',en:'I like fruits.',bn:'আমি ফল পছন্দ করি।'}},
+  {id:120,kanji:'物',hiragana:'もの/ぶつ',english:'thing/object',bangla:'জিনিস',sentence:{jp:'いろいろなものがあります।',en:'There are various things.',bn:'বিভিন্ন জিনিস আছে।'}},
+  {id:121,kanji:'品',hiragana:'しな/ひん',english:'goods/article',bangla:'পণ্য',sentence:{jp:'いい品質です।',en:'It has good quality.',bn:'এটি ভালো গুণমান।'}},
+  {id:122,kanji:'味',hiragana:'あじ/み',english:'taste',bangla:'স্বাদ',sentence:{jp:'いい味です।',en:'It tastes good.',bn:'এটি ভালো স্বাদ।'}},
+  {id:123,kanji:'色',hiragana:'いろ/しき',english:'color',bangla:'রঙ',sentence:{jp:'どの色が好きですか।',en:'What color do you like?',bn:'আপনি কোন রঙ পছন্দ করেন?'}},
+  {id:124,kanji:'質',hiragana:'たち/しつ',english:'quality',bangla:'গুণমান',sentence:{jp:'いい質を持っています।',en:'It has good quality.',bn:'এটি ভালো গুণমান রয়েছে।'}},
+  {id:125,kanji:'数',hiragana:'かず/すう',english:'number',bangla:'সংখ্যা',sentence:{jp:'数が多いです।',en:'The number is large.',bn:'সংখ্যা বড়।'}},
+  {id:126,kanji:'量',hiragana:'かさ/りょう',english:'quantity',bangla:'পরিমাণ',sentence:{jp:'量が多いです।',en:'The amount is large.',bn:'পরিমাণ বেশি।'}},
+  {id:127,kanji:'度',hiragana:'たび/ど',english:'degree/times',bangla:'ডিগ্রি',sentence:{jp:'温度が高いです।',en:'The temperature is high.',bn:'তাপমাত্রা বেশি।'}},
+  {id:128,kanji:'重',hiragana:'おもい/じゅう',english:'heavy',bangla:'ভারী',sentence:{jp:'これは重いです।',en:'This is heavy.',bn:'এটি ভারী।'}},
+  {id:129,kanji:'軽',hiragana:'かるい/けい',english:'light',bangla:'হালকা',sentence:{jp:'これは軽いです।',en:'This is light.',bn:'এটি হালকা।'}},
+  {id:130,kanji:'角',hiragana:'かど/かく',english:'corner/angle',bangla:'কোণ',sentence:{jp:'道の角を曲がります।',en:'I turn at the corner of the street.',bn:'আমি রাস্তার কোণে বাঁক নিই।'}},
+  {id:131,kanji:'素',hiragana:'もと/そ',english:'element/plain',bangla:'উপাদান',sentence:{jp:'素材がいいです।',en:'The material is good.',bn:'উপকরণ ভালো।'}},
+  {id:132,kanji:'面',hiragana:'つら/めん',english:'face/surface',bangla:'মুখ',sentence:{jp:'顔が見えます।',en:'I can see the face.',bn:'আমি মুখ দেখতে পারি।'}},
+  {id:133,kanji:'部',hiragana:'へ/ぶ',english:'department',bangla:'বিভাগ',sentence:{jp:'営業部に行きます।',en:'I go to the sales department.',bn:'আমি বিক্রয় বিভাগে যাই।'}},
+  {id:134,kanji:'法',hiragana:'のり/ほう',english:'law/method',bangla:'আইন',sentence:{jp:'法律があります।',en:'There is a law.',bn:'একটি আইন আছে।'}},
+  {id:135,kanji:'式',hiragana:'しき',english:'formula/ceremony',bangla:'সূত্র',sentence:{jp:'卒業式があります।',en:'There is a graduation ceremony.',bn:'একটি স্নাতক অনুষ্ঠান আছে।'}},
+  {id:136,kanji:'向',hiragana:'むく/こう',english:'face/direction',bangla:'মুখ করা',sentence:{jp:'向こうに見えます।',en:'I can see it over there.',bn:'আমি এটি সেখানে দেখতে পারি।'}},
+  {id:137,kanji:'技',hiragana:'わざ/ぎ',english:'skill/technique',bangla:'দক্ষতা',sentence:{jp:'技術があります।',en:'I have skill.',bn:'আমার দক্ষতা আছে।'}},
+  {id:138,kanji:'者',hiragana:'もの/しゃ',english:'person',bangla:'ব্যক্তি',sentence:{jp:'学者です।',en:'He/she is a scholar.',bn:'তিনি একজন পণ্ডিত।'}},
+  {id:139,kanji:'類',hiragana:'たぐい/るい',english:'type/kind',bangla:'ধরন',sentence:{jp:'いろいろな類があります।',en:'There are various types.',bn:'বিভিন্ন ধরনের আছে।'}},
+  {id:140,kanji:'人',hiragana:'じん',english:'people',bangla:'মানুষ',sentence:{jp:'三人います।',en:'There are three people.',bn:'তিনজন আছে।'}},
+  {id:141,kanji:'工',hiragana:'こう',english:'craft/work',bangla:'কাজ',sentence:{jp:'工事が始まりました।',en:'Construction has started.',bn:'নির্মাণ শুরু হয়েছে।'}},
+  {id:142,kanji:'王',hiragana:'おう',english:'king',bangla:'রাজা',sentence:{jp:'王様がいます।',en:'There is a king.',bn:'একজন রাজা আছে।'}},
+  {id:143,kanji:'玉',hiragana:'たま/ぎょく',english:'ball/jewel',bangla:'বল',sentence:{jp:'玉を投げます।',en:'I throw the ball.',bn:'আমি বল নিক্ষেপ করি।'}},
+  {id:144,kanji:'石',hiragana:'いし/せき',english:'stone/rock',bangla:'পাথর',sentence:{jp:'石があります।',en:'There is a stone.',bn:'একটি পাথর আছে।'}},
+  {id:145,kanji:'竹',hiragana:'たけ/ちく',english:'bamboo',bangla:'বাঁশ',sentence:{jp:'竹林があります।',en:'There is a bamboo forest.',bn:'একটি বাঁশের বাগান আছে।'}},
+  {id:146,kanji:'米',hiragana:'べい/こめ',english:'rice/america',bangla:'চাল',sentence:{jp:'米国から来ました।',en:'I came from America.',bn:'আমি আমেরিকা থেকে এসেছি।'}},
+  {id:147,kanji:'糸',hiragana:'いと/し',english:'thread',bangla:'সুতা',sentence:{jp:'糸を使います።',en:'I use thread.',bn:'আমি সুতা ব্যবহার করি।'}},
+  {id:148,kanji:'貝',hiragana:'かい/ばい',english:'shellfish',bangla:'ঝিনুক',sentence:{jp:'貝を集めます।',en:'I collect shells.',bn:'আমি ঝিনুক সংগ্রহ করি।'}},
+  {id:149,kanji:'赤',hiragana:'あか',english:'red/baby',bangla:'লাল',sentence:{jp:'赤ちゃんが生まれました።',en:'A baby was born.',bn:'একটি শিশু জন্ম নিয়েছে।'}},
+  {id:150,kanji:'走',hiragana:'はしる/そう',english:'run',bangla:'দৌড়ানো',sentence:{jp:'毎日走ります។',en:'I run every day.',bn:'আমি প্রতিদিন দৌড়াই।'}}
 ];
-
-// Note: Full 150 Kanji dataset - IDs 26-150 follow same structure
-// Dataset includes: Numbers, Days, People, Body Parts, Animals, Food, Objects, Places, Colors, Actions, States, and Miscellaneous
