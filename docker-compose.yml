@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────────────────
+#  docker-compose.yml — Japanese Learning Station
+#  Run:  docker-compose up --build
+#  Stop: docker-compose down
+# ─────────────────────────────────────────────────────────
+
+version: '3.8'
+
+services:
+
+  # ── Backend (Node.js + Express) ──────────────────────────
+  backend:
+    build:
+      context: .          # build from the root of the project
+      dockerfile: Dockerfile
+
+    container_name: japanese-learning-station
+
+    ports:
+      - "3000:3000"       # http://localhost:3000  →  container port 3000
+
+    volumes:
+      # Mount the whole project so changes to frontend & backend
+      # files are reflected instantly WITHOUT rebuilding the image.
+      - .:/app
+
+      # Prevent the host's node_modules from overwriting the container's
+      - /app/backend/node_modules
+
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+
+    # Restart automatically if the container crashes
+    restart: unless-stopped

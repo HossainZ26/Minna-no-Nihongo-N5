@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment — Japanese Learning Station</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">🌸</span>
+      <span class="logo-text">
+        Japanese Learning Station
+        <span class="logo-jp">日本語学習ステーション</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="letters.html">🔤 Letters</a></li>
+      <li><a href="vocabulary.html">📚 Vocabulary</a></li>
+      <li><a href="grammar.html">📖 Grammar</a></li>
+      <li><a href="listening.html">🎧 Listening</a></li>
+      <li><a href="assignment.html" class="active">📝 Assignment</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<div class="page-header">
+  <h1>📝 Assignments</h1>
+  <p class="jp-title">課題・教材</p>
+  <p class="subtitle">Upload and manage your study materials, worksheets, and reference images.</p>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- Tabs -->
+  <div class="assignment-tabs">
+    <button class="tab-btn active" data-tab="docs-tab">📄 Documents (PDF / Word)</button>
+    <button class="tab-btn" data-tab="images-tab">🖼️ Images</button>
+    <button class="tab-btn" data-tab="checklist-tab">✅ Study Checklist</button>
+  </div>
+
+  <!-- ===== DOCUMENTS TAB ===== -->
+  <div id="docs-tab" class="tab-panel active">
+    <div class="grid-2" style="margin-bottom:2rem;">
+      <div>
+        <h2 class="section-title">⬆️ Upload Document</h2>
+        <div class="upload-area" onclick="document.getElementById('doc-input').click()" style="cursor:pointer;">
+          <div class="upload-icon">📄</div>
+          <p><strong>Click to browse</strong> PDF or Word documents</p>
+          <p style="margin-top:0.5rem;font-size:0.8rem;">Supports: PDF, DOC, DOCX, TXT</p>
+          <input type="file" id="doc-input" accept=".pdf,.doc,.docx,.txt" multiple style="display:none;" />
+        </div>
+        <div class="alert alert-success">
+          ✅ <strong>Uploaded documents</strong> are saved to the server and available any time.
+        </div>
+      </div>
+      <div>
+        <h2 class="section-title">💡 What to upload?</h2>
+        <div class="card">
+          <div class="card-body">
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
+              <li>📘 Hiragana / Katakana writing worksheets</li>
+              <li>📘 N5 vocabulary lists (printable)</li>
+              <li>📘 Grammar practice exercises</li>
+              <li>📘 JLPT N5 past exam papers</li>
+              <li>📘 Teacher-provided handouts</li>
+              <li>📘 Your own study notes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">📁 Document Library</h2>
+    <ul class="file-list" id="doc-list"></ul>
+    <div id="doc-empty" style="text-align:center;padding:2.5rem;color:#95a5a6;">
+      <div style="font-size:2.5rem;margin-bottom:0.8rem;">📂</div>
+      <h3 style="color:#636e72;font-weight:600;">No documents yet</h3>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">Upload a PDF or Word document above to get started.</p>
+    </div>
+  </div>
+
+  <!-- ===== IMAGES TAB ===== -->
+  <div id="images-tab" class="tab-panel">
+    <div class="grid-2" style="margin-bottom:2rem;">
+      <div>
+        <h2 class="section-title">⬆️ Upload Image</h2>
+        <div class="upload-area" onclick="document.getElementById('img-input').click()" style="cursor:pointer;">
+          <div class="upload-icon">🖼️</div>
+          <p><strong>Click to browse</strong> image files</p>
+          <p style="margin-top:0.5rem;font-size:0.8rem;">Supports: JPG, PNG, GIF, WEBP</p>
+          <input type="file" id="img-input" accept="image/*" multiple style="display:none;" />
+        </div>
+        <div class="alert alert-info">
+          💡 Upload kana charts, vocabulary diagrams, or kanji reference sheets.
+        </div>
+      </div>
+      <div>
+        <h2 class="section-title">📌 Image Ideas</h2>
+        <div class="card">
+          <div class="card-body">
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
+              <li>🖼️ Hiragana stroke-order charts</li>
+              <li>🖼️ Vocabulary picture flashcards</li>
+              <li>🖼️ Grammar summary tables</li>
+              <li>🖼️ Kanji reference sheets</li>
+              <li>🖼️ Maps of Japan (place names)</li>
+              <li>🖼️ Your handwritten practice sheets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">🗂️ Image Gallery</h2>
+    <ul class="file-list" id="img-list"></ul>
+    <div id="img-empty" style="text-align:center;padding:2.5rem;color:#95a5a6;">
+      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🖼️</div>
+      <h3 style="color:#636e72;font-weight:600;">No images yet</h3>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">Upload an image above to add it to your gallery.</p>
+    </div>
+  </div>
+
+  <!-- ===== CHECKLIST TAB ===== -->
+  <div id="checklist-tab" class="tab-panel">
+    <h2 class="section-title">✅ N5 Study Checklist</h2>
+
+    <div class="grid-2">
+      <!-- Hiragana -->
+      <div class="card">
+        <div class="card-header" style="background:#c0392b;">🔤 Hiragana Mastery</div>
+        <div class="card-body">
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn basic hiragana (46 chars)</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn dakuten hiragana (25 chars)</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Write hiragana from memory</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Read simple hiragana words</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;">
+            <input type="checkbox" class="check-item" /> <span>Pass the hiragana quiz</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Katakana -->
+      <div class="card">
+        <div class="card-header" style="background:#2980b9;">🔤 Katakana Mastery</div>
+        <div class="card-body">
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn basic katakana (46 chars)</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn dakuten katakana</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Read 10 loan words in katakana</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Write katakana from memory</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;">
+            <input type="checkbox" class="check-item" /> <span>Distinguish hiragana vs katakana</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Vocabulary -->
+      <div class="card">
+        <div class="card-header" style="background:#27ae60;">📚 N5 Vocabulary</div>
+        <div class="card-body">
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn greetings (10 words)</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn numbers 1–100</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn family vocabulary</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Learn food vocabulary (10 words)</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;">
+            <input type="checkbox" class="check-item" /> <span>Learn 50+ N5 verbs &amp; adjectives</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Grammar -->
+      <div class="card">
+        <div class="card-header" style="background:#f39c12;">📖 N5 Grammar</div>
+        <div class="card-body">
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Understand は vs が particles</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Use を、に、で、の particles</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Form ます / ません sentences</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;margin-bottom:0.7rem;">
+            <input type="checkbox" class="check-item" /> <span>Form ました / ませんでした</span>
+          </label>
+          <label style="display:flex;gap:0.7rem;align-items:center;cursor:pointer;">
+            <input type="checkbox" class="check-item" /> <span>Make questions with か</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="card" style="margin-top:1.5rem;">
+      <div class="card-header" style="background:#1a1a2e;">📊 Your Progress</div>
+      <div class="card-body">
+        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:0.5rem;">
+          <span>Tasks completed</span>
+          <span id="check-count">0 / 20</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="check-progress" style="width:0%;"></div>
+        </div>
+        <p style="font-size:0.82rem;color:#95a5a6;margin-top:0.5rem;">Check off items as you complete them. Keep going — you've got this! 🌸</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-quote">Welcome to Japanese Learning Station. Never give up — every step you take brings you closer to your goal.</p>
+    <div class="footer-divider"></div>
+    <p class="footer-quote-jp">日本語学習ステーションへようこそ。あきらめずに、一歩一歩進めば目標に近づきます。</p>
+    <p class="footer-copy">© 2025 Japanese Learning Station · JLPT N5 Beginner Course</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Checklist progress
+  function updateProgress() {
+    const items   = document.querySelectorAll('.check-item');
+    const checked = document.querySelectorAll('.check-item:checked').length;
+    const total   = items.length;
+    const pct     = Math.round((checked / total) * 100);
+    document.getElementById('check-count').textContent   = `${checked} / ${total}`;
+    document.getElementById('check-progress').style.width = pct + '%';
+  }
+
+  document.querySelectorAll('.check-item').forEach(cb => {
+    cb.addEventListener('change', updateProgress);
+  });
+
+  // Hide empty states dynamically
+  function watchList(listId, emptyId) {
+    const list  = document.getElementById(listId);
+    const empty = document.getElementById(emptyId);
+    if (!list || !empty) return;
+    const obs = new MutationObserver(() => {
+      empty.style.display = list.children.length > 0 ? 'none' : '';
+    });
+    obs.observe(list, { childList: true });
+  }
+  watchList('doc-list', 'doc-empty');
+  watchList('img-list', 'img-empty');
+</script>
+</body>
+</html>

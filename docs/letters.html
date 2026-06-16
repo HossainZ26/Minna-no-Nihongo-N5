@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letters — Japanese Learning Station</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">🌸</span>
+      <span class="logo-text">
+        Japanese Learning Station
+        <span class="logo-jp">日本語学習ステーション</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="letters.html" class="active">🔤 Letters</a></li>
+      <li><a href="vocabulary.html">📚 Vocabulary</a></li>
+      <li><a href="grammar.html">📖 Grammar</a></li>
+      <li><a href="listening.html">🎧 Listening</a></li>
+      <li><a href="assignment.html">📝 Assignment</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<div class="page-header">
+  <h1>🔤 Hiragana &amp; Katakana</h1>
+  <p class="jp-title">ひらがな・カタカナ</p>
+  <p class="subtitle">The two Japanese phonetic alphabets — master these first!</p>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- Tabs -->
+  <div class="assignment-tabs">
+    <button class="tab-btn active" data-tab="hiragana-tab">ひらがな Hiragana</button>
+    <button class="tab-btn" data-tab="katakana-tab">カタカナ Katakana</button>
+    <button class="tab-btn" data-tab="quiz-tab">🎯 Kana Quiz</button>
+  </div>
+
+  <!-- ===== HIRAGANA TAB ===== -->
+  <div id="hiragana-tab" class="tab-panel active">
+    <div class="alert alert-info">
+      💡 <strong>Tip:</strong> Hover over any character to see it enlarge. Click the quiz tab to test yourself!
+    </div>
+
+    <!-- Basic Hiragana -->
+    <div class="kana-section">
+      <h2>Basic Hiragana (46 characters)</h2>
+      <div class="kana-table-wrap">
+        <table class="kana-table">
+          <thead>
+            <tr>
+              <th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-a">
+              <th>vowels</th>
+              <td><div class="kana-cell"><span class="kana">あ</span><span class="roma">a</span></div></td>
+              <td><div class="kana-cell"><span class="kana">い</span><span class="roma">i</span></div></td>
+              <td><div class="kana-cell"><span class="kana">う</span><span class="roma">u</span></div></td>
+              <td><div class="kana-cell"><span class="kana">え</span><span class="roma">e</span></div></td>
+              <td><div class="kana-cell"><span class="kana">お</span><span class="roma">o</span></div></td>
+            </tr>
+            <tr class="row-ka">
+              <th>k</th>
+              <td><div class="kana-cell"><span class="kana">か</span><span class="roma">ka</span></div></td>
+              <td><div class="kana-cell"><span class="kana">き</span><span class="roma">ki</span></div></td>
+              <td><div class="kana-cell"><span class="kana">く</span><span class="roma">ku</span></div></td>
+              <td><div class="kana-cell"><span class="kana">け</span><span class="roma">ke</span></div></td>
+              <td><div class="kana-cell"><span class="kana">こ</span><span class="roma">ko</span></div></td>
+            </tr>
+            <tr class="row-sa">
+              <th>s</th>
+              <td><div class="kana-cell"><span class="kana">さ</span><span class="roma">sa</span></div></td>
+              <td><div class="kana-cell"><span class="kana">し</span><span class="roma">shi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">す</span><span class="roma">su</span></div></td>
+              <td><div class="kana-cell"><span class="kana">せ</span><span class="roma">se</span></div></td>
+              <td><div class="kana-cell"><span class="kana">そ</span><span class="roma">so</span></div></td>
+            </tr>
+            <tr class="row-ta">
+              <th>t</th>
+              <td><div class="kana-cell"><span class="kana">た</span><span class="roma">ta</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ち</span><span class="roma">chi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">つ</span><span class="roma">tsu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">て</span><span class="roma">te</span></div></td>
+              <td><div class="kana-cell"><span class="kana">と</span><span class="roma">to</span></div></td>
+            </tr>
+            <tr class="row-na">
+              <th>n</th>
+              <td><div class="kana-cell"><span class="kana">な</span><span class="roma">na</span></div></td>
+              <td><div class="kana-cell"><span class="kana">に</span><span class="roma">ni</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぬ</span><span class="roma">nu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ね</span><span class="roma">ne</span></div></td>
+              <td><div class="kana-cell"><span class="kana">の</span><span class="roma">no</span></div></td>
+            </tr>
+            <tr class="row-ha">
+              <th>h</th>
+              <td><div class="kana-cell"><span class="kana">は</span><span class="roma">ha</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ひ</span><span class="roma">hi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ふ</span><span class="roma">fu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">へ</span><span class="roma">he</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ほ</span><span class="roma">ho</span></div></td>
+            </tr>
+            <tr class="row-ma">
+              <th>m</th>
+              <td><div class="kana-cell"><span class="kana">ま</span><span class="roma">ma</span></div></td>
+              <td><div class="kana-cell"><span class="kana">み</span><span class="roma">mi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">む</span><span class="roma">mu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">め</span><span class="roma">me</span></div></td>
+              <td><div class="kana-cell"><span class="kana">も</span><span class="roma">mo</span></div></td>
+            </tr>
+            <tr class="row-ya">
+              <th>y</th>
+              <td><div class="kana-cell"><span class="kana">や</span><span class="roma">ya</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">ゆ</span><span class="roma">yu</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">よ</span><span class="roma">yo</span></div></td>
+            </tr>
+            <tr class="row-ra">
+              <th>r</th>
+              <td><div class="kana-cell"><span class="kana">ら</span><span class="roma">ra</span></div></td>
+              <td><div class="kana-cell"><span class="kana">り</span><span class="roma">ri</span></div></td>
+              <td><div class="kana-cell"><span class="kana">る</span><span class="roma">ru</span></div></td>
+              <td><div class="kana-cell"><span class="kana">れ</span><span class="roma">re</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ろ</span><span class="roma">ro</span></div></td>
+            </tr>
+            <tr class="row-wa">
+              <th>w / n</th>
+              <td><div class="kana-cell"><span class="kana">わ</span><span class="roma">wa</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">を</span><span class="roma">wo</span></div></td>
+            </tr>
+            <tr>
+              <th>n</th>
+              <td colspan="5"><div class="kana-cell" style="display:inline-block;"><span class="kana">ん</span><span class="roma">n</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Dakuten Hiragana -->
+    <div class="kana-section">
+      <h2>Dakuten Hiragana (voiced sounds)</h2>
+      <div class="kana-table-wrap">
+        <table class="kana-table">
+          <thead>
+            <tr><th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>g</th>
+              <td><div class="kana-cell"><span class="kana">が</span><span class="roma">ga</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぎ</span><span class="roma">gi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぐ</span><span class="roma">gu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">げ</span><span class="roma">ge</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ご</span><span class="roma">go</span></div></td>
+            </tr>
+            <tr><th>z</th>
+              <td><div class="kana-cell"><span class="kana">ざ</span><span class="roma">za</span></div></td>
+              <td><div class="kana-cell"><span class="kana">じ</span><span class="roma">ji</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ず</span><span class="roma">zu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぜ</span><span class="roma">ze</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぞ</span><span class="roma">zo</span></div></td>
+            </tr>
+            <tr><th>d</th>
+              <td><div class="kana-cell"><span class="kana">だ</span><span class="roma">da</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぢ</span><span class="roma">ji</span></div></td>
+              <td><div class="kana-cell"><span class="kana">づ</span><span class="roma">zu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">で</span><span class="roma">de</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ど</span><span class="roma">do</span></div></td>
+            </tr>
+            <tr><th>b</th>
+              <td><div class="kana-cell"><span class="kana">ば</span><span class="roma">ba</span></div></td>
+              <td><div class="kana-cell"><span class="kana">び</span><span class="roma">bi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぶ</span><span class="roma">bu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">べ</span><span class="roma">be</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぼ</span><span class="roma">bo</span></div></td>
+            </tr>
+            <tr><th>p</th>
+              <td><div class="kana-cell"><span class="kana">ぱ</span><span class="roma">pa</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぴ</span><span class="roma">pi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぷ</span><span class="roma">pu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぺ</span><span class="roma">pe</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ぽ</span><span class="roma">po</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- end hiragana-tab -->
+
+  <!-- ===== KATAKANA TAB ===== -->
+  <div id="katakana-tab" class="tab-panel">
+    <div class="alert alert-warning">
+      📌 <strong>Note:</strong> Katakana is mostly used for foreign words (loan words) and names. e.g., コーヒー (kōhī) = coffee
+    </div>
+
+    <div class="kana-section">
+      <h2>Basic Katakana (46 characters)</h2>
+      <div class="kana-table-wrap">
+        <table class="kana-table">
+          <thead>
+            <tr><th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-a">
+              <th>vowels</th>
+              <td><div class="kana-cell"><span class="kana">ア</span><span class="roma">a</span></div></td>
+              <td><div class="kana-cell"><span class="kana">イ</span><span class="roma">i</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ウ</span><span class="roma">u</span></div></td>
+              <td><div class="kana-cell"><span class="kana">エ</span><span class="roma">e</span></div></td>
+              <td><div class="kana-cell"><span class="kana">オ</span><span class="roma">o</span></div></td>
+            </tr>
+            <tr class="row-ka">
+              <th>k</th>
+              <td><div class="kana-cell"><span class="kana">カ</span><span class="roma">ka</span></div></td>
+              <td><div class="kana-cell"><span class="kana">キ</span><span class="roma">ki</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ク</span><span class="roma">ku</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ケ</span><span class="roma">ke</span></div></td>
+              <td><div class="kana-cell"><span class="kana">コ</span><span class="roma">ko</span></div></td>
+            </tr>
+            <tr class="row-sa">
+              <th>s</th>
+              <td><div class="kana-cell"><span class="kana">サ</span><span class="roma">sa</span></div></td>
+              <td><div class="kana-cell"><span class="kana">シ</span><span class="roma">shi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ス</span><span class="roma">su</span></div></td>
+              <td><div class="kana-cell"><span class="kana">セ</span><span class="roma">se</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ソ</span><span class="roma">so</span></div></td>
+            </tr>
+            <tr class="row-ta">
+              <th>t</th>
+              <td><div class="kana-cell"><span class="kana">タ</span><span class="roma">ta</span></div></td>
+              <td><div class="kana-cell"><span class="kana">チ</span><span class="roma">chi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ツ</span><span class="roma">tsu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">テ</span><span class="roma">te</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ト</span><span class="roma">to</span></div></td>
+            </tr>
+            <tr class="row-na">
+              <th>n</th>
+              <td><div class="kana-cell"><span class="kana">ナ</span><span class="roma">na</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ニ</span><span class="roma">ni</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ヌ</span><span class="roma">nu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ネ</span><span class="roma">ne</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ノ</span><span class="roma">no</span></div></td>
+            </tr>
+            <tr class="row-ha">
+              <th>h</th>
+              <td><div class="kana-cell"><span class="kana">ハ</span><span class="roma">ha</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ヒ</span><span class="roma">hi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">フ</span><span class="roma">fu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ヘ</span><span class="roma">he</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ホ</span><span class="roma">ho</span></div></td>
+            </tr>
+            <tr class="row-ma">
+              <th>m</th>
+              <td><div class="kana-cell"><span class="kana">マ</span><span class="roma">ma</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ミ</span><span class="roma">mi</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ム</span><span class="roma">mu</span></div></td>
+              <td><div class="kana-cell"><span class="kana">メ</span><span class="roma">me</span></div></td>
+              <td><div class="kana-cell"><span class="kana">モ</span><span class="roma">mo</span></div></td>
+            </tr>
+            <tr class="row-ya">
+              <th>y</th>
+              <td><div class="kana-cell"><span class="kana">ヤ</span><span class="roma">ya</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">ユ</span><span class="roma">yu</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">ヨ</span><span class="roma">yo</span></div></td>
+            </tr>
+            <tr class="row-ra">
+              <th>r</th>
+              <td><div class="kana-cell"><span class="kana">ラ</span><span class="roma">ra</span></div></td>
+              <td><div class="kana-cell"><span class="kana">リ</span><span class="roma">ri</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ル</span><span class="roma">ru</span></div></td>
+              <td><div class="kana-cell"><span class="kana">レ</span><span class="roma">re</span></div></td>
+              <td><div class="kana-cell"><span class="kana">ロ</span><span class="roma">ro</span></div></td>
+            </tr>
+            <tr class="row-wa">
+              <th>w / n</th>
+              <td><div class="kana-cell"><span class="kana">ワ</span><span class="roma">wa</span></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell empty"></div></td>
+              <td><div class="kana-cell"><span class="kana">ヲ</span><span class="roma">wo</span></div></td>
+            </tr>
+            <tr>
+              <th>n</th>
+              <td colspan="5"><div class="kana-cell" style="display:inline-block;"><span class="kana">ン</span><span class="roma">n</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Loan word examples -->
+    <div class="kana-section">
+      <h2>Common Loan Word Examples</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header" style="background:#2980b9;">Food &amp; Drinks</div>
+          <div class="card-body">
+            <table class="data-table">
+              <tr><td class="jp">コーヒー</td><td>kōhī</td><td>coffee</td></tr>
+              <tr><td class="jp">ビール</td><td>bīru</td><td>beer</td></tr>
+              <tr><td class="jp">パン</td><td>pan</td><td>bread</td></tr>
+              <tr><td class="jp">アイス</td><td>aisu</td><td>ice cream</td></tr>
+              <tr><td class="jp">ジュース</td><td>jūsu</td><td>juice</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#27ae60;">Technology</div>
+          <div class="card-body">
+            <table class="data-table">
+              <tr><td class="jp">テレビ</td><td>terebi</td><td>television</td></tr>
+              <tr><td class="jp">スマホ</td><td>sumaho</td><td>smartphone</td></tr>
+              <tr><td class="jp">パソコン</td><td>pasokon</td><td>PC</td></tr>
+              <tr><td class="jp">カメラ</td><td>kamera</td><td>camera</td></tr>
+              <tr><td class="jp">ゲーム</td><td>gēmu</td><td>game</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#8e44ad;">Daily Life</div>
+          <div class="card-body">
+            <table class="data-table">
+              <tr><td class="jp">バス</td><td>basu</td><td>bus</td></tr>
+              <tr><td class="jp">ホテル</td><td>hoteru</td><td>hotel</td></tr>
+              <tr><td class="jp">デパート</td><td>depāto</td><td>department store</td></tr>
+              <tr><td class="jp">タクシー</td><td>takushī</td><td>taxi</td></tr>
+              <tr><td class="jp">マンション</td><td>manshon</td><td>apartment</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end katakana-tab -->
+
+  <!-- ===== QUIZ TAB ===== -->
+  <div id="quiz-tab" class="tab-panel">
+    <div class="card" style="max-width:500px;margin:0 auto;">
+      <div class="card-header" style="background:#c0392b;">🎯 Hiragana Reading Quiz</div>
+      <div class="card-body" id="kana-quiz">
+        <p style="margin-bottom:1.5rem;font-size:0.9rem;color:#666;">Type the romaji reading of each hiragana character.</p>
+        <div style="text-align:center;margin-bottom:1.5rem;">
+          <div id="quiz-question" style="font-size:5rem;font-family:'Noto Sans JP',sans-serif;font-weight:700;color:#1a1a2e;line-height:1;"></div>
+          <div id="quiz-score" style="font-size:0.85rem;color:#95a5a6;margin-top:0.5rem;"></div>
+        </div>
+        <div style="display:flex;gap:0.8rem;">
+          <input type="text" id="quiz-answer" placeholder="Type romaji here…"
+            style="flex:1;padding:0.7rem 1rem;border:2px solid #ecf0f1;border-radius:50px;font-size:1rem;font-family:'Poppins',sans-serif;outline:none;"
+            autocomplete="off" />
+          <button id="quiz-next" class="btn btn-red">Check</button>
+        </div>
+        <div id="quiz-result" style="text-align:center;font-size:1.1rem;font-weight:600;margin-top:1rem;min-height:1.5rem;"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-quote">Welcome to Japanese Learning Station. Never give up — every step you take brings you closer to your goal.</p>
+    <div class="footer-divider"></div>
+    <p class="footer-quote-jp">日本語学習ステーションへようこそ。あきらめずに、一歩一歩進めば目標に近づきます。</p>
+    <p class="footer-copy">© 2025 Japanese Learning Station · JLPT N5 Beginner Course</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

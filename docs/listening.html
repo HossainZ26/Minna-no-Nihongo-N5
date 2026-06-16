@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening — Japanese Learning Station</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">🌸</span>
+      <span class="logo-text">
+        Japanese Learning Station
+        <span class="logo-jp">日本語学習ステーション</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="letters.html">🔤 Letters</a></li>
+      <li><a href="vocabulary.html">📚 Vocabulary</a></li>
+      <li><a href="grammar.html">📖 Grammar</a></li>
+      <li><a href="listening.html" class="active">🎧 Listening</a></li>
+      <li><a href="assignment.html">📝 Assignment</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<div class="page-header">
+  <h1>🎧 Listening Practice</h1>
+  <p class="jp-title">リスニング練習</p>
+  <p class="subtitle">Upload audio files and practice your Japanese listening skills.</p>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <div class="grid-2" style="margin-bottom:2rem;">
+    <!-- Upload area -->
+    <div>
+      <h2 class="section-title">⬆️ Upload Audio</h2>
+      <div class="upload-area" id="upload-area">
+        <div class="upload-icon">🎵</div>
+        <p><strong>Click to browse</strong> or drag &amp; drop audio files here</p>
+        <p style="margin-top:0.5rem;font-size:0.8rem;">Supports: MP3, WAV, OGG, M4A, AAC</p>
+        <input type="file" id="audio-input" accept="audio/*" multiple style="display:none;" />
+      </div>
+
+      <div class="alert alert-info">
+        🎙️ <strong>Tip:</strong> Upload your teacher's audio, Japanese podcasts, or N5 listening practice files. They will be saved to the server!
+      </div>
+    </div>
+
+    <!-- Listening tips -->
+    <div>
+      <h2 class="section-title">💡 Listening Tips</h2>
+      <div class="card">
+        <div class="card-body">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.8rem;">
+            <li style="display:flex;gap:0.7rem;align-items:flex-start;">
+              <span style="font-size:1.2rem;">🔁</span>
+              <div>
+                <strong>Repeat shadowing</strong>
+                <p style="font-size:0.82rem;color:#666;margin-top:2px;">Listen once, then repeat what you hear. This improves pronunciation and memory.</p>
+              </div>
+            </li>
+            <li style="display:flex;gap:0.7rem;align-items:flex-start;">
+              <span style="font-size:1.2rem;">📝</span>
+              <div>
+                <strong>Take notes</strong>
+                <p style="font-size:0.82rem;color:#666;margin-top:2px;">Write down words you recognize. Even one new word per audio is progress!</p>
+              </div>
+            </li>
+            <li style="display:flex;gap:0.7rem;align-items:flex-start;">
+              <span style="font-size:1.2rem;">🎯</span>
+              <div>
+                <strong>Focus on keywords</strong>
+                <p style="font-size:0.82rem;color:#666;margin-top:2px;">Don't try to understand everything at once. Listen for numbers, names, and greetings first.</p>
+              </div>
+            </li>
+            <li style="display:flex;gap:0.7rem;align-items:flex-start;">
+              <span style="font-size:1.2rem;">📅</span>
+              <div>
+                <strong>Daily listening</strong>
+                <p style="font-size:0.82rem;color:#666;margin-top:2px;">Even 10 minutes of Japanese audio each day builds your ear over time.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio file list -->
+  <h2 class="section-title">🎵 Audio Library</h2>
+  <ul class="file-list" id="file-list">
+    <!-- Files appear here after upload -->
+  </ul>
+
+  <!-- Empty state (shown when no files) -->
+  <div id="empty-state" style="text-align:center;padding:3rem;color:#95a5a6;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🎼</div>
+    <h3 style="font-weight:600;color:#636e72;">No audio files yet</h3>
+    <p style="font-size:0.9rem;margin-top:0.5rem;">Upload an audio file above to start your listening library.</p>
+  </div>
+
+  <!-- Recommended topics -->
+  <h2 class="section-title" style="margin-top:2rem;">📋 Suggested Audio Topics</h2>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-header" style="background:#c0392b;">🗣️ Greetings</div>
+      <div class="card-body">
+        <p style="font-size:0.85rem;line-height:1.6;">Upload recordings of common Japanese greetings: おはよう、こんにちは、ありがとう and practice repeating them.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" style="background:#2980b9;">🔢 Numbers</div>
+      <div class="card-body">
+        <p style="font-size:0.85rem;line-height:1.6;">Listen to numbers 1–100 in Japanese. This is essential for telling time, shopping, and daily conversation.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" style="background:#27ae60;">💬 Short Dialogues</div>
+      <div class="card-body">
+        <p style="font-size:0.85rem;line-height:1.6;">Simple N5-level dialogues: introductions, asking for directions, ordering food. Great for real-world preparation.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-quote">Welcome to Japanese Learning Station. Never give up — every step you take brings you closer to your goal.</p>
+    <div class="footer-divider"></div>
+    <p class="footer-quote-jp">日本語学習ステーションへようこそ。あきらめずに、一歩一歩進めば目標に近づきます。</p>
+    <p class="footer-copy">© 2025 Japanese Learning Station · JLPT N5 Beginner Course</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Hide empty state when files are added
+  const observer = new MutationObserver(() => {
+    const fileList = document.getElementById('file-list');
+    const emptyState = document.getElementById('empty-state');
+    if (emptyState) emptyState.style.display = fileList.children.length > 0 ? 'none' : '';
+  });
+  const fileList = document.getElementById('file-list');
+  if (fileList) observer.observe(fileList, { childList: true });
+</script>
+</body>
+</html>
